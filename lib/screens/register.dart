@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:heocondihoc/login.dart';
+import 'package:heocondihoc/screens/login.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen();

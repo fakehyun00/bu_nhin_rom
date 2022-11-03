@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:heocondihoc/login.dart';
-import 'package:heocondihoc/register.dart';
+import 'package:heocondihoc/screens/login.dart';
+import 'package:heocondihoc/screens/register.dart';
 
 void main() {
   runApp(const MyApp());
