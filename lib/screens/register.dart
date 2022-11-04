@@ -51,7 +51,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                           child: SizedBox(
                             height: 50,
                             child: TextField(
-                                autofocus: true,
+                                autofocus: false,
                                 style: const TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                     fillColor: Colors.white,
