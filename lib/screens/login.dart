@@ -1,6 +1,6 @@
 import 'package:gap/gap.dart';
 import 'package:flutter/material.dart';
-import 'package:heocondihoc/register.dart';
+import 'package:heocondihoc/screens/register.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
