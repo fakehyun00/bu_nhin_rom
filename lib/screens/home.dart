@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/components/history.dart';
+import 'package:heocondihoc/components/play.dart';
 
 class HomeSreen extends StatefulWidget {
   const HomeSreen({super.key});
@@ -14,7 +17,7 @@ class _HomeSreenState extends State<HomeSreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 5, vsync: this, initialIndex: 1);
   }
 
   @override
@@ -45,7 +48,7 @@ class _HomeSreenState extends State<HomeSreen> with TickerProviderStateMixin {
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const [
+        children: [
           Center(
             child: Text('abc0'),
           ),
@@ -53,7 +56,7 @@ class _HomeSreenState extends State<HomeSreen> with TickerProviderStateMixin {
             child: History(),
           ),
           Center(
-            child: Text('abc2'),
+            child: PlayScreen(),
           ),
           Center(
             child: Text('abc3'),
