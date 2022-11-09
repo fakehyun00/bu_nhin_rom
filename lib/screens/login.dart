@@ -1,5 +1,6 @@
 import 'package:gap/gap.dart';
 import 'package:flutter/material.dart';
+import 'package:heocondihoc/models/logo.dart';
 import 'package:heocondihoc/screens/register.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -191,11 +192,3 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-var logo = const CircleAvatar(
-  backgroundImage: AssetImage(
-    'assets/logo1.png',
-  ),
-  radius: 80,
-  backgroundColor: Color.fromARGB(255, 117, 172, 105),
-);
