@@ -3,6 +3,7 @@ import 'package:heocondihoc/components/history.dart';
 import 'package:heocondihoc/screens/home.dart';
 import 'package:heocondihoc/screens/login.dart';
 import 'package:heocondihoc/screens/register.dart';
+import 'package:heocondihoc/screens/buyplays.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,9 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-
-      home: const RegisterScreen(),
-
+      home: const BuyPlays(),
       debugShowCheckedModeBanner: false,
     );
   }
