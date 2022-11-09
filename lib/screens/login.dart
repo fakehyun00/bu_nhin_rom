@@ -1,5 +1,10 @@
 import 'package:gap/gap.dart';
 import 'package:flutter/material.dart';
+
+import 'package:heocondihoc/models/logo.dart';
+
+import 'package:heocondihoc/screens/home.dart';
+
 import 'package:heocondihoc/screens/register.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -55,7 +60,7 @@ class LoginScreenState extends State<LoginScreen> {
                     child: SizedBox(
                       height: 50,
                       child: TextField(
-                          autofocus: true,
+                          autofocus: false,
                           style: const TextStyle(color: Colors.black),
                           decoration: InputDecoration(
                               fillColor: Colors.white,
@@ -108,10 +113,8 @@ class LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
-                    onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RegisterScreen())),
+                    onPressed: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeSreen())),
                     child: Text('Đăng nhập'),
                     style: ElevatedButton.styleFrom(
                         //minimumSize: Size(350, 50),
@@ -182,7 +185,12 @@ class LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Bạn chưa có tài khoản?'),
-                    TextButton(onPressed: () {}, child: Text('Đăng ký ngay'))
+                    TextButton(
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegisterScreen())),
+                        child: Text('Đăng ký ngay'))
                   ],
                 )
               ]))
@@ -191,11 +199,3 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-var logo = const CircleAvatar(
-  backgroundImage: AssetImage(
-    'assets/logo1.png',
-  ),
-  radius: 80,
-  backgroundColor: Color.fromARGB(255, 117, 172, 105),
-);
