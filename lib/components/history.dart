@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:heocondihoc/models/color.dart';
+
+import '../models/item.dart';
 
 class History extends StatefulWidget {
   const History({super.key});
@@ -10,11 +14,34 @@ class History extends StatefulWidget {
 class _HistoryState extends State<History> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
+    return Scaffold(
+      backgroundColor: background_color,
+      body: ListView(children: [
+        Container(
+          padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(children: [
+                    BackButton(
+                      onPressed: () {},
+                    )
+                  ]),
+                  Column(
+                    children: [
+                      ItemBar(),
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
         Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Padding(padding: EdgeInsets.fromLTRB(0, 50, 0, 0)),
             Text(
               'Lịch sử',
               style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
@@ -25,39 +52,115 @@ class _HistoryState extends State<History> {
             )
           ],
         ),
-        Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-                'To generate HTML output, see package html/template, which has the same interface as this package but automatically secures HTML output against certain attacks.')),
-        Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-                'Templates are executed by applying them to a data structure. Annotations in the template refer to elements of the data structure (typically a field of a struct or a key in a map) to control execution and derive values to be displayed. Execution of the template walks the structure and sets the cursor, represented by a period \'.\' and called "dot", to the value at the current location in the structure as execution proceeds.')),
-        Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-                'To generate HTML output, see package html/template, which has the same interface as this package but automatically secures HTML output against certain attacks.')),
-        Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-                'Templates are executed by applying them to a data structure. Annotations in the template refer to elements of the data structure (typically a field of a struct or a key in a map) to control execution and derive values to be displayed. Execution of the template walks the structure and sets the cursor, represented by a period \'.\' and called "dot", to the value at the current location in the structure as execution proceeds.')),
-        Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-                'To generate HTML output, see package html/template, which has the same interface as this package but automatically secures HTML output against certain attacks.')),
-        Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-                'Templates are executed by applying them to a data structure. Annotations in the template refer to elements of the data structure (typically a field of a struct or a key in a map) to control execution and derive values to be displayed. Execution of the template walks the structure and sets the cursor, represented by a period \'.\' and called "dot", to the value at the current location in the structure as execution proceeds.')),
-        Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-                'To generate HTML output, see package html/template, which has the same interface as this package but automatically secures HTML output against certain attacks.')),
-        Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-                'Templates are executed by applying them to a data structure. Annotations in the template refer to elements of the data structure (typically a field of a struct or a key in a map) to control execution and derive values to be displayed. Execution of the template walks the structure and sets the cursor, represented by a period \'.\' and called "dot", to the value at the current location in the structure as execution proceeds.')),
-      ],
+        Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.green,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Text(
+                'Đến giữa thế kỉ XIX, quyền hành \nthực tế của Nhật Bản nằm trong \ntay lực lượng chính trị nào?',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Gap(20),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.green,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Text(
+                'Đến giữa thế kỉ XIX, các nước tư \nbản phương Tây đã sư dụng \nchính sách hay biện pháp gì để \nép Nhật Bản phải"mở cửa"',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Gap(20),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.red,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Text(
+                'Ý nào không phản ánh đúng \ntình hình kinh tế của Nhật \nBản từ đầu thế kỉ XIX đến trước \nnăm 1868?',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Gap(20),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.green,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Text(
+                'Đến giữa thế kỉ XIX, quyền hành \nthực tế của Nhật Bản nằm trong \ntay lực lượng chính trị nào?',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Gap(20),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.green,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Text(
+                'Đến giữa thế kỉ XIX, quyền hành \nthực tế của Nhật Bản nằm trong \ntay lực lượng chính trị nào?',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Gap(20),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.green,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Text(
+                'Đến giữa thế kỉ XIX, quyền hành \nthực tế của Nhật Bản nằm trong \ntay lực lượng chính trị nào?',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Gap(20),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.green,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Text(
+                'Đến giữa thế kỉ XIX, quyền hành \nthực tế của Nhật Bản nằm trong \ntay lực lượng chính trị nào?',
+                style: TextStyle(fontSize: 20),
+              ),
+            )
+          ],
+        )
+      ]),
     );
   }
 }
