@@ -9,14 +9,14 @@ import 'package:heocondihoc/screens/profile.dart';
 
 import 'package:heocondihoc/screens/menu.dart';
 
-class BottomBar extends StatefulWidget {
-  const BottomBar({super.key});
+class Bottom_Bar extends StatefulWidget {
+  const Bottom_Bar({super.key});
 
   @override
-  State<BottomBar> createState() => _BottomBarState();
+  State<Bottom_Bar> createState() => _Bottom_BarState();
 }
 
-class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
+class _Bottom_BarState extends State<Bottom_Bar> with TickerProviderStateMixin {
   late TabController _tabController;
   @override
   void initState() {
