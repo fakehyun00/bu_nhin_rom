@@ -70,11 +70,11 @@ class _HeaderInfoState extends State<HeaderInfo> {
                   Row(
                     children: [
                       Text(
-                        '===================',
+                        '================',
                         style: TextStyle(color: myColor),
                       ),
                       Text(
-                        '===================',
+                        '================',
                         style: TextStyle(color: Colors.grey),
                       )
                     ],
