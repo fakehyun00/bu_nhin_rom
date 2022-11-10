@@ -45,7 +45,7 @@ class _MenuScreenState extends State<MenuScreen> {
             HeaderInfo(),
             divider,
             Container(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(10),
                 child: Column(
                   children: [
                     Container(
@@ -101,7 +101,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 )),
           ])),
           Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(10),
               child: Column(
                 children: [
                   Container(
@@ -155,6 +155,33 @@ class _MenuScreenState extends State<MenuScreen> {
                   ),
                 ],
               )),
+          Container(
+              padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
+              child: Container(
+                height: 40,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.resolveWith(getColor1),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ))),
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text('Đăng xuất', style: TextStyle(fontSize: 22))
+                    ],
+                  ),
+                ),
+              )),
+          Image(
+              width: 200,
+              height: 200,
+              image: NetworkImage(
+                'https://kynguyenlamdep.com/wp-content/uploads/2022/08/meme-meo-loading.jpg',
+              ))
           // Container(
           //   padding: EdgeInsets.fromLTRB(35, 20, 35, 20),
           //   child: Container(
