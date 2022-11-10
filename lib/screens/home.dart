@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:heocondihoc/models/item.dart';
+
+import 'package:gap/gap.dart';
+import 'package:heocondihoc/components/history.dart';
+import 'package:heocondihoc/components/play.dart';
+import 'package:heocondihoc/screens/buyplays.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: EdgeInsets.fromLTRB(5, 20, 5, 0),
       child: Column(
         children: [
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -30,6 +38,23 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             ],
           )
+
+          Center(
+            child: Text('abc0'),
+          ),
+          Center(
+            child: History(),
+          ),
+          Center(
+            child: PlayScreen(),
+          ),
+          Center(
+            child: BuyPlays(),
+          ),
+          Center(
+            child: Text('abc4'),
+          ),
+
         ],
       ),
     );
