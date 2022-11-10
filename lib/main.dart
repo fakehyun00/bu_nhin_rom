@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/components/bottombar.dart';
+import 'package:heocondihoc/screens/home.dart';
 import 'package:heocondihoc/screens/login.dart';
 import 'package:heocondihoc/screens/menu.dart';
 import 'package:heocondihoc/screens/pay.dart';
@@ -9,6 +10,7 @@ import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/singlematch.dart';
 import 'package:heocondihoc/screens/singlematch_answer.dart';
 import 'package:heocondihoc/screens/singlematch_wrong.dart';
+import 'package:heocondihoc/screens/win_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SingleMatch_Answer(),
+      home: const WinScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
