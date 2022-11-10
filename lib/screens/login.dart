@@ -1,9 +1,10 @@
 import 'package:gap/gap.dart';
 import 'package:flutter/material.dart';
+import 'package:heocondihoc/models/color.dart';
 
 import 'package:heocondihoc/models/logo.dart';
 
-import 'package:heocondihoc/screens/home.dart';
+import 'package:heocondihoc/components/bottombar.dart';
 
 import 'package:heocondihoc/screens/register.dart';
 
@@ -30,20 +31,13 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 231, 238, 244),
+      backgroundColor: background_color,
       body: ListView(
-        //decoration: const BoxDecoration(
-        // image: DecorationImage(
-        //   image: AssetImage("assets/bg1.jpg"),
-        //   fit: BoxFit.fill,
-        // ),
-
-        //),
         children: [
           Container(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: Column(children: [
-                Gap(80),
+                Gap(20),
                 logo,
                 Gap(10),
                 const Text(
@@ -51,7 +45,7 @@ class LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
-                      color: Colors.black),
+                      color: myColor),
                 ),
                 Gap(10),
 
@@ -61,20 +55,23 @@ class LoginScreenState extends State<LoginScreen> {
                       height: 50,
                       child: TextField(
                           autofocus: false,
-                          style: const TextStyle(color: Colors.black),
+                          style: const TextStyle(color: myColor),
                           decoration: InputDecoration(
                               fillColor: Colors.white,
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(50),
-                                borderSide: const BorderSide(
-                                    width: 1, color: Colors.black),
+                                borderSide:
+                                    const BorderSide(width: 1, color: myColor),
                               ),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(50)),
-                              prefixIcon: const Icon(Icons.account_circle),
+                              prefixIcon: const Icon(
+                                Icons.account_circle,
+                                color: myColor,
+                              ),
                               hintText: 'Tên đăng nhập',
                               hintStyle: const TextStyle(
-                                color: Colors.black,
+                                color: myColor,
                               ))),
                     )),
                 // Gap(20),
@@ -84,28 +81,31 @@ class LoginScreenState extends State<LoginScreen> {
                       height: 50,
                       child: TextField(
                           obscureText: isHiden,
-                          style: const TextStyle(color: Colors.black),
+                          style: const TextStyle(color: myColor),
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50),
-                              borderSide: const BorderSide(
-                                  width: 1, color: Colors.black),
+                              borderSide:
+                                  const BorderSide(width: 1, color: myColor),
                             ),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(50)),
                             prefixIcon: const Icon(
                               Icons.lock_outline,
-                              //color: Colors.black,
+                              color: myColor,
                             ),
                             hintText: 'Mật khẩu',
-                            hintStyle: const TextStyle(color: Colors.black),
+                            hintStyle: const TextStyle(color: myColor),
                             suffix: InkWell(
                                 onTap: changeHidenPass,
                                 child: Transform.translate(
                                   offset: Offset(0.0, 8.0),
-                                  child: Icon(isHiden
-                                      ? Icons.visibility
-                                      : Icons.visibility_off),
+                                  child: Icon(
+                                    isHiden
+                                        ? Icons.visibility
+                                        : Icons.visibility_off,
+                                    color: myColor,
+                                  ),
                                 )),
                           )),
                     )),
@@ -113,8 +113,11 @@ class LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
-                    onPressed: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeSreen())),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => BottomBar()));
+                    },
                     child: Text('Đăng nhập'),
                     style: ElevatedButton.styleFrom(
                         //minimumSize: Size(350, 50),
@@ -130,24 +133,36 @@ class LoginScreenState extends State<LoginScreen> {
                       flex: 5,
                       child: Row(children: [
                         Checkbox(
-                            checkColor: Colors.white,
+                            fillColor:
+                                MaterialStateProperty.resolveWith(getColor),
+                            checkColor: Colors.blue,
                             value: isChecked,
                             onChanged: (bool? value) {
                               setState(() {
                                 isChecked = value!;
                               });
                             }),
-                        Text('Nhớ mật khẩu'),
+                        Text(
+                          'Nhớ mật khẩu',
+                          style: TextStyle(color: myColor),
+                        ),
                       ]),
                     ),
                     Expanded(
                       flex: 3,
                       child: TextButton(
-                          onPressed: () {}, child: Text('Quên mật khẩu')),
+                          onPressed: () {},
+                          child: Text(
+                            'Quên mật khẩu',
+                            style: TextStyle(color: myColor),
+                          )),
                     )
                   ],
                 ),
-                Text('Hoặc đăng nhập bằng'),
+                Text(
+                  'Hoặc đăng nhập bằng',
+                  style: TextStyle(color: myColor),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -170,27 +185,26 @@ class LoginScreenState extends State<LoginScreen> {
                         ))
                   ],
                 ),
-                // SignInButton(
-                //   Buttons.FacebookNew,
-                //   onPressed: () {},
-                //   text: 'Đăng nhập bằng Facebook',
-                // ),
-                // SignInButton(
-                //   Buttons.Google,
-
-                //   onPressed: () {},
-                //   text: 'Đăng nhập bằng Google',
-                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Bạn chưa có tài khoản?'),
+                    Text(
+                      'Bạn chưa có tài khoản?',
+                      style: TextStyle(color: myColor),
+                    ),
                     TextButton(
-                        onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RegisterScreen())),
-                        child: Text('Đăng ký ngay'))
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegisterScreen()));
+                        },
+                        child: Text(
+                          'Đăng ký ngay',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 243, 172, 156)),
+                        ))
                   ],
                 )
               ]))

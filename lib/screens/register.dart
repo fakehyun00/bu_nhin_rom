@@ -54,12 +54,8 @@ class RegisterScreenState extends State<RegisterScreen> {
                           child: SizedBox(
                             height: 50,
                             child: TextField(
-
                                 style: const TextStyle(color: Colors.white),
-
                                 autofocus: false,
-      
-
                                 decoration: InputDecoration(
                                     fillColor: Colors.white,
                                     enabledBorder: OutlineInputBorder(
@@ -208,6 +204,8 @@ class RegisterScreenState extends State<RegisterScreen> {
                           onPressed: () => showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
+                                    backgroundColor:
+                                        Color.fromARGB(255, 243, 172, 156),
                                     title: Text('Đăng ký thành công'),
                                     content: Text('Chào mừng bạn đến với XXX'),
                                     actions: [
