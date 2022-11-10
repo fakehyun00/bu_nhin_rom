@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/header_info.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
+import 'package:heocondihoc/screens/home.dart';
 
 class RankScreen extends StatefulWidget {
   const RankScreen({super.key});
@@ -31,7 +32,11 @@ class _RankScreenState extends State<RankScreen> {
                 //padding: EdgeInsets.all(0),
                 child: BackButton(
                   color: myColor,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                  },
                 ),
               ),
               Expanded(
@@ -152,7 +157,7 @@ class _RankScreenState extends State<RankScreen> {
                                 '7',
                                 style: TextStyle(color: myColor),
                               ),
-                              title: Text('Độc cô cầu qua môn ',
+                              title: Text('Độc cô cầu qua môn',
                                   style: TextStyle(
                                       color: myColor,
                                       fontWeight: FontWeight.bold)),
@@ -163,10 +168,94 @@ class _RankScreenState extends State<RankScreen> {
               ),
             ),
             Container(
-              color: Colors.green,
-              alignment: Alignment.center,
-              child: const Text('Page 2'),
-            ),
+              child: Column(
+                children: [
+                  Card(
+                      color: background_color,
+                      child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            const ListTile(
+                              leading: Text(
+                                '1',
+                                style: TextStyle(color: myColor),
+                              ),
+                              title: Text('Lộc fuho',
+                                  style: TextStyle(
+                                      color: myColor,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                            divider,
+                            const ListTile(
+                              leading: Text(
+                                '2',
+                                style: TextStyle(color: myColor),
+                              ),
+                              title: Text('ĐNYN',
+                                  style: TextStyle(
+                                      color: myColor,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                            divider,
+                            const ListTile(
+                              leading: Text(
+                                '3',
+                                style: TextStyle(color: myColor),
+                              ),
+                              title: Text('Fukboi\'s si\'s tình\'s',
+                                  style: TextStyle(
+                                      color: myColor,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                            divider,
+                            const ListTile(
+                              leading: Text(
+                                '4',
+                                style: TextStyle(color: myColor),
+                              ),
+                              title: Text('Everything is Widget',
+                                  style: TextStyle(
+                                      color: myColor,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                            divider,
+                            const ListTile(
+                              leading: Text(
+                                '5',
+                                style: TextStyle(color: myColor),
+                              ),
+                              title: Text('Độc cô cầu qua môn',
+                                  style: TextStyle(
+                                      color: myColor,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                            divider,
+                            const ListTile(
+                              leading: Text(
+                                '6',
+                                style: TextStyle(color: myColor),
+                              ),
+                              title: Text('Hưng Apple',
+                                  style: TextStyle(
+                                      color: myColor,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                            divider,
+                            const ListTile(
+                              leading: Text(
+                                '7',
+                                style: TextStyle(color: myColor),
+                              ),
+                              title: Text('Mơi Văn Dũng',
+                                  style: TextStyle(
+                                      color: myColor,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                            divider,
+                          ]))
+                ],
+              ),
+            )
           ][currentPageIndex],
         ],
       ),

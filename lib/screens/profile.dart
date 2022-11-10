@@ -102,7 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 Row(
                                   children: [
                                     Text(
-                                      ' Ngày tham gia:\n 11/11/2022',
+                                      ' Ngày tham gia:\n 11/11/2022 ',
                                       style: TextStyle(fontSize: 20),
                                     )
                                   ],
