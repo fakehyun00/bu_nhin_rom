@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:heocondihoc/models/item.dart';
+
+import 'package:gap/gap.dart';
+
+import 'package:heocondihoc/screens/buyplays.dart';
+import 'package:heocondihoc/screens/history.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,7 +35,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               )
             ],
-          )
+          ),
+          Center(
+            child: Text('abc0'),
+          ),
+          Center(
+            child: History(),
+          ),
+          Center(
+            child: HomeScreen(),
+          ),
+          Center(
+            child: BuyPlays(),
+          ),
+          Center(
+            child: Text('abc4'),
+          ),
         ],
       ),
     );
