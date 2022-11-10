@@ -114,7 +114,8 @@ class _BuyPlaysState extends State<BuyPlays> {
                 Row(
                   children: [
                     Icon(
-                      Icons.favorite_sharp,
+                      Icons.favorite,
+                      color: Colors.red,
                     )
                   ],
                 )
