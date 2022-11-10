@@ -19,18 +19,13 @@ class _HistoryState extends State<History> {
       backgroundColor: background_color,
       body: ListView(children: [
         Container(
-          padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
+          padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(children: [
-                    BackButton(
-                      color: myColor,
-                      onPressed: () {},
-                    )
-                  ]),
+                  Container(),
                   Column(
                     children: [
                       ItemBar(),
@@ -102,7 +97,7 @@ class _HistoryState extends State<History> {
             Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                  color: Colors.green,
+                  color: Colors.red,
                   border: Border.all(
                     color: Colors.white,
                     width: 1,
