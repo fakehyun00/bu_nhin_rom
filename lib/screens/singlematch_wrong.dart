@@ -140,27 +140,48 @@ class _SingleMatchAnswerWrongState extends State<SingleMatch_AnswerWrong> {
           Container(
               margin: EdgeInsets.only(top: 15),
               padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-              width: 300,
-              height: 50,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.white),
-              child: Text('A.  5500 năm trước')),
+              width: 330,
+              height: 60,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black54,
+                ),
+                onPressed: () {},
+                child: Text('A. 5500 năm trước'),
+              )),
           Container(
               margin: EdgeInsets.only(top: 15),
               padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-              width: 300,
-              height: 50,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.red),
-              child: Text('B.  4000 năm trước')),
+              width: 330,
+              height: 60,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.black54,
+                ),
+                onPressed: () {},
+                child: Text('B. 4000 năm trước'),
+              )),
           Container(
               margin: EdgeInsets.only(top: 15),
               padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-              width: 300,
-              height: 50,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.white),
-              child: Text('C.  3000 năm trước')),
+              width: 330,
+              height: 60,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black54,
+                ),
+                onPressed: () {},
+                child: Text('C. 3000 năm trước'),
+              )),
           Container(
               margin: EdgeInsets.only(top: 15),
               padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
