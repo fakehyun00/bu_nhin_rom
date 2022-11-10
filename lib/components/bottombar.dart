@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/screens/home.dart';
 import 'package:heocondihoc/screens/profile.dart';
@@ -62,7 +63,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
             child: HomeScreen(),
           ),
           Center(
-            child: Text('abc3'),
+            child: BuyPlays(),
           ),
           Center(
             child: MenuScreen(),
