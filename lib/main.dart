@@ -6,6 +6,7 @@ import 'package:heocondihoc/screens/menu.dart';
 import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/register.dart';
 import 'package:heocondihoc/screens/buyplays.dart';
+import 'package:heocondihoc/screens/singlematch.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(),
+      home: const SingleMatch(),
       debugShowCheckedModeBanner: false,
     );
   }
