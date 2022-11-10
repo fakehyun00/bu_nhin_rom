@@ -4,7 +4,7 @@ import 'package:heocondihoc/models/color.dart';
 
 import 'package:heocondihoc/models/logo.dart';
 
-import 'package:heocondihoc/screens/home.dart';
+import 'package:heocondihoc/components/bottombar.dart';
 
 import 'package:heocondihoc/screens/register.dart';
 
@@ -116,7 +116,7 @@ class LoginScreenState extends State<LoginScreen> {
                     onPressed: () {
                       Navigator.pop(context);
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomeSreen()));
+                          MaterialPageRoute(builder: (context) => BottomBar()));
                     },
                     child: Text('Đăng nhập'),
                     style: ElevatedButton.styleFrom(
