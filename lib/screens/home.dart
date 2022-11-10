@@ -6,6 +6,9 @@ import 'package:heocondihoc/components/history.dart';
 import 'package:heocondihoc/components/play.dart';
 import 'package:heocondihoc/screens/profile.dart';
 
+import 'package:heocondihoc/screens/menu.dart';
+
+
 class HomeSreen extends StatefulWidget {
   const HomeSreen({super.key});
 
@@ -63,7 +66,7 @@ class _HomeSreenState extends State<HomeSreen> with TickerProviderStateMixin {
             child: Text('abc3'),
           ),
           Center(
-            child: Text('abc4'),
+            child: MenuScreen(),
           ),
         ],
       ),
