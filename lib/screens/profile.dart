@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/color.dart';
+import 'package:heocondihoc/models/header_info.dart';
 import '../models/item.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
 
@@ -21,26 +22,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: ListView(
         children: [
           Container(
-            padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(),
-                    Column(
-                      children: [
-                        ItemBar(),
-                      ],
-                    )
-                  ],
-                )
-              ],
-            ),
+            child: HeaderInfo(),
           ),
-          Container(
-            child: divider,
-          ),
+          Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -71,72 +55,72 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
-          Container(
-            height: 130,
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 17),
-            margin: EdgeInsets.only(right: 100, top: 25, left: 50),
-            decoration: BoxDecoration(
-                color: Colors.purple[100],
-                borderRadius: BorderRadius.circular(20)),
-            child: Column(
-              children: [
-                Container(
-                    margin: EdgeInsets.only(left: 130),
-                    child: Icon(
-                      Icons.book_rounded,
-                      size: 50,
-                    )),
-                Text(
-                  'Số cấp độ \nđã hoàn thành: 1      ',
-                  style: TextStyle(fontSize: 20),
-                )
-              ],
-            ),
+          Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 130,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 17),
+                      margin: EdgeInsets.only(right: 175, top: 20, left: 5),
+                      decoration: BoxDecoration(
+                          color: Colors.purple[100],
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        children: [
+                          Container(
+                              margin: EdgeInsets.only(left: 110),
+                              child: Icon(
+                                Icons.book_rounded,
+                                size: 50,
+                              )),
+                          Text(
+                            'Số cấp độ \nđã hoàn thành: 1      ',
+                            style: TextStyle(fontSize: 20),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
           ),
-          Container(
-            height: 130,
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 17),
-            margin: EdgeInsets.only(right: 100, top: 25, left: 50),
-            decoration: BoxDecoration(
-                color: Colors.blueAccent[100],
-                borderRadius: BorderRadius.circular(20)),
-            child: Column(
-              children: [
-                Container(
-                    margin: EdgeInsets.only(left: 130),
-                    child: Icon(
-                      Icons.calendar_month_outlined,
-                      size: 50,
-                    )),
-                Text(
-                  'Ngày tham gia \ntrò chơi 11/11/2022',
-                  style: TextStyle(fontSize: 20),
-                )
-              ],
-            ),
+          Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 130,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 17),
+                      margin: EdgeInsets.only(right: 175, top: 20, left: 5),
+                      decoration: BoxDecoration(
+                          color: Colors.purple[100],
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        children: [
+                          Container(
+                              margin: EdgeInsets.only(left: 110),
+                              child: Icon(
+                                Icons.book_rounded,
+                                size: 50,
+                              )),
+                          Text(
+                            'Số cấp độ \nđã hoàn thành: 1      ',
+                            style: TextStyle(fontSize: 20),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
           ),
-          Container(
-            height: 130,
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 17),
-            margin: EdgeInsets.only(right: 100, top: 25, left: 50),
-            decoration: BoxDecoration(
-                color: Colors.green[100],
-                borderRadius: BorderRadius.circular(20)),
-            child: Column(
-              children: [
-                Container(
-                    margin: EdgeInsets.only(left: 130),
-                    child: Icon(
-                      Icons.help,
-                      size: 50,
-                    )),
-                Text(
-                  'Tỉ lệ \ntrả lời đúng: 50%     ',
-                  style: TextStyle(fontSize: 20),
-                )
-              ],
-            ),
-          )
         ],
       ),
     );
