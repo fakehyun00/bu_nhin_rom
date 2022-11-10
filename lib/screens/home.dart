@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/header_info.dart';
+import 'package:heocondihoc/models/item.dart';
+
+import 'package:gap/gap.dart';
+
+import 'package:heocondihoc/screens/buyplays.dart';
+import 'package:heocondihoc/screens/history.dart';
+import 'package:heocondihoc/screens/pay.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,7 +19,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         backgroundColor: background_color,
         body: Column(children: [
@@ -71,37 +77,52 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  color: Colors.amber,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  margin: EdgeInsets.only(left: 30),
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.wine_bar_rounded,
-                        size: 30,
+                    padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
+                    child: Container(
+                      height: 90,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: Size(110, 80),
+                            padding: EdgeInsets.only(top: 25),
+                            backgroundColor: Colors.amber),
+                        onPressed: () {},
+                        child: Column(
+                          children: [
+                            Icon(Icons.wine_bar),
+                            Gap(2),
+                            Text('Bảng xếp hạng')
+                          ],
+                        ),
                       ),
-                      Text('Bảng xếp hạng')
-                    ],
-                  ),
-                ),
+                    )),
                 Container(
-                  color: Colors.amber,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  margin: EdgeInsets.only(right: 40),
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.badge_outlined,
-                        size: 30,
+                    padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
+                    child: Container(
+                      height: 90,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: Size(110, 80),
+                            padding: EdgeInsets.only(top: 25),
+                            backgroundColor: Colors.amber),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NapTienScreen()));
+                        },
+                        child: Column(
+                          children: [
+                            Icon(Icons.badge),
+                            Gap(2),
+                            Text('Nạp tiền')
+                          ],
+                        ),
                       ),
-                      Text('    Nạp Tiền    ')
-                    ],
-                  ),
-                )
+                    )),
               ],
             ),
           )
         ]));
-
   }
 }
