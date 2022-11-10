@@ -118,7 +118,7 @@ class LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Bottom_Bar(),
+                            builder: (context) => BottomBar(),
                           ));
                     },
                     child: Text('Đăng nhập'),
