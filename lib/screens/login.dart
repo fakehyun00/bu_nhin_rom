@@ -193,10 +193,13 @@ class LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(color: myColor),
                     ),
                     TextButton(
-                        onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RegisterScreen())),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegisterScreen()));
+                        },
                         child: Text(
                           'Đăng ký ngay',
                           style: TextStyle(

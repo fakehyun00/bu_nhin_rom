@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/color.dart';
+import 'package:heocondihoc/models/padding_shop.dart';
 
 import '../models/item.dart';
 
@@ -26,6 +27,7 @@ class _HistoryState extends State<History> {
                 children: [
                   Column(children: [
                     BackButton(
+                      color: myColor,
                       onPressed: () {},
                     )
                   ]),
@@ -44,12 +46,10 @@ class _HistoryState extends State<History> {
             Padding(padding: EdgeInsets.fromLTRB(0, 50, 0, 0)),
             Text(
               'Lịch sử',
-              style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 35, fontWeight: FontWeight.bold, color: myColor),
             ),
-            Divider(
-              thickness: 1.5,
-              color: Colors.grey,
-            )
+            divider,
           ],
         ),
         Column(
