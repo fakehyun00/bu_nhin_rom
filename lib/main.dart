@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SingleMatch_Answer(),
+
+      home: const Bottom_Bar(),
+
       debugShowCheckedModeBanner: false,
     );
   }
