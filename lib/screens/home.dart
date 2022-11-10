@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/header_info.dart';
 
-import 'package:heocondihoc/models/item.dart';
-
-import 'package:gap/gap.dart';
-
-import 'package:heocondihoc/screens/buyplays.dart';
-import 'package:heocondihoc/screens/history.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -19,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         backgroundColor: background_color,
         body: Column(children: [
@@ -108,5 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           )
         ]));
+
   }
 }
