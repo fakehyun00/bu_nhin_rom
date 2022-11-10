@@ -115,8 +115,11 @@ class LoginScreenState extends State<LoginScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => BottomBar()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Bottom_Bar(),
+                          ));
                     },
                     child: Text('Đăng nhập'),
                     style: ElevatedButton.styleFrom(
