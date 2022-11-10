@@ -4,11 +4,13 @@ import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/screens/login.dart';
 import 'package:heocondihoc/screens/menu.dart';
 import 'package:heocondihoc/screens/pay.dart';
+import 'package:heocondihoc/screens/profile.dart';
 import 'package:heocondihoc/screens/register.dart';
 import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/singlematch.dart';
 import 'package:heocondihoc/screens/singlematch_answer.dart';
 import 'package:heocondihoc/screens/singlematch_wrong.dart';
+import 'package:heocondihoc/screens/quit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SingleMatch_Answer(),
+      home: const Quit(),
       debugShowCheckedModeBanner: false,
     );
   }
