@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:heocondihoc/models/color.dart';
 
 class ItemBar extends StatefulWidget {
   const ItemBar({super.key});
@@ -21,10 +22,11 @@ class _ItemBarState extends State<ItemBar> {
           padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
           decoration: BoxDecoration(
               border: Border.all(
+                color: myColor,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(50)),
-          child: Text('100'),
+          child: Text('100', style: TextStyle(color: myColor)),
         ),
         Icon(
           Icons.cake,
@@ -35,10 +37,11 @@ class _ItemBarState extends State<ItemBar> {
           padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
           decoration: BoxDecoration(
               border: Border.all(
+                color: myColor,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(50)),
-          child: Text('100'),
+          child: Text('100', style: TextStyle(color: myColor)),
         ),
         Icon(
           Icons.favorite,
@@ -49,10 +52,14 @@ class _ItemBarState extends State<ItemBar> {
           padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
           decoration: BoxDecoration(
               border: Border.all(
+                color: myColor,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(50)),
-          child: Text('100'),
+          child: Text(
+            '100',
+            style: TextStyle(color: myColor),
+          ),
         ),
       ],
     );
