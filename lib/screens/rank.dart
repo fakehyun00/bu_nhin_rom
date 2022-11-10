@@ -152,7 +152,7 @@ class _RankScreenState extends State<RankScreen> {
                                 '7',
                                 style: TextStyle(color: myColor),
                               ),
-                              title: Text('Độc cô cầu qua môn',
+                              title: Text('Độc cô cầu qua môn ',
                                   style: TextStyle(
                                       color: myColor,
                                       fontWeight: FontWeight.bold)),

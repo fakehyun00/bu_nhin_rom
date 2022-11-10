@@ -9,7 +9,6 @@ import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/rank.dart';
-import 'package:heocondihoc/screens/rank_single_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
