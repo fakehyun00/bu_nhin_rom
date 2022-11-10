@@ -29,3 +29,15 @@ Color getColor1(Set<MaterialState> states) {
   }
   return Color.fromARGB(255, 232, 180, 116);
 }
+
+Color getColor2(Set<MaterialState> states) {
+  const Set<MaterialState> interactiveStates = <MaterialState>{
+    MaterialState.pressed,
+    MaterialState.hovered,
+    MaterialState.focused,
+  };
+  if (states.any(interactiveStates.contains)) {
+    return Color.fromARGB(255, 232, 180, 116);
+  }
+  return Color.fromARGB(255, 255, 255, 255);
+}

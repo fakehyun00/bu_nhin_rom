@@ -24,7 +24,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WinScreen(),
+
+
+      home: const Bottom_Bar(),
+
+
       debugShowCheckedModeBanner: false,
     );
   }
