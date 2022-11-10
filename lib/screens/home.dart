@@ -8,6 +8,7 @@ import 'package:gap/gap.dart';
 import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/screens/pay.dart';
+import 'package:heocondihoc/screens/rank.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -85,7 +86,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             minimumSize: Size(110, 80),
                             padding: EdgeInsets.only(top: 25),
                             backgroundColor: Colors.amber),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RankScreen()));
+                        },
                         child: Column(
                           children: [
                             Icon(Icons.wine_bar),
