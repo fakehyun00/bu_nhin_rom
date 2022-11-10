@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/color.dart';
+import 'package:heocondihoc/models/header_info.dart';
 import 'package:heocondihoc/models/item.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
 
@@ -41,77 +42,7 @@ class _MenuScreenState extends State<MenuScreen> {
         body: ListView(children: [
           Container(
               child: Column(children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [ItemBar()],
-            ),
-            Gap(10),
-            Row(
-              children: [
-                Expanded(
-                    flex: 3,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white.withOpacity(0.5),
-                      radius: 40,
-                      child: Icon(
-                        Icons.person_outline,
-                        color: myColor,
-                        size: 70,
-                      ),
-                    )),
-                Expanded(
-                    flex: 7,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text('Thiên Hưng',
-                            style: TextStyle(color: myColor, fontSize: 22)),
-                        Gap(10),
-                        Text('Level: 2', style: TextStyle(color: myColor))
-                      ],
-                    )),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Icon(
-                  Icons.ac_unit_sharp,
-                  size: 50,
-                  color: Colors.brown,
-                ),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text('100/200', style: TextStyle(color: myColor)),
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellow,
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          '===================',
-                          style: TextStyle(color: myColor),
-                        ),
-                        Text(
-                          '===================',
-                          style: TextStyle(color: Colors.grey),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                const Icon(
-                  Icons.ac_unit_sharp,
-                  size: 50,
-                  color: Colors.grey,
-                )
-              ],
-            ),
+            HeaderInfo(),
             divider,
             Container(
                 padding: EdgeInsets.all(20),
@@ -224,26 +155,27 @@ class _MenuScreenState extends State<MenuScreen> {
                   ),
                 ],
               )),
-          Container(
-            padding: EdgeInsets.fromLTRB(35, 20, 35, 20),
-            child: Container(
-              padding: EdgeInsets.only(left: 15, right: 15),
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 232, 180, 116),
-                  borderRadius: BorderRadius.circular(10)),
-              height: 40,
-              width: MediaQuery.of(context).size.width / 1.2,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Đăng xuất',
-                    style: TextStyle(fontSize: 22),
-                  )
-                ],
-              ),
-            ),
-          )
+          // Container(
+          //   padding: EdgeInsets.fromLTRB(35, 20, 35, 20),
+          //   child: Container(
+
+          //     padding: EdgeInsets.only(left: 15, right: 15),
+          //     decoration: BoxDecoration(
+          //         color: Color.fromARGB(255, 232, 180, 116),
+          //         borderRadius: BorderRadius.circular(10)),
+          //     height: 40,
+          //     width: MediaQuery.of(context).size.width / 1.2,
+          //     child: Row(
+          //       mainAxisAlignment: MainAxisAlignment.start,
+          //       children: [
+          //         Text(
+          //           'Đăng xuất',
+          //           style: TextStyle(fontSize: 22),
+          //         )
+          //       ],
+          //     ),
+          //   ),
+          // )
         ]));
   }
 }
