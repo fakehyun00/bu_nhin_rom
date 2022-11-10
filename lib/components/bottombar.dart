@@ -1,73 +1,73 @@
-import 'dart:math';
-
+import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/history.dart';
-import 'package:heocondihoc/screens/home.dart';
+import 'package:heocondihoc/screens/menu.dart';
+import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/profile.dart';
 
-import 'package:heocondihoc/screens/menu.dart';
+import '../screens/home.dart';
 
-class Bottom_Bar extends StatefulWidget {
-  const Bottom_Bar({super.key});
+class BottomBar extends StatefulWidget {
+  const BottomBar({Key? key}) : super(key: key);
 
   @override
-  State<Bottom_Bar> createState() => _Bottom_BarState();
+  State<BottomBar> createState() => _BottomBarState();
 }
 
-class _Bottom_BarState extends State<Bottom_Bar> with TickerProviderStateMixin {
-  late TabController _tabController;
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 5, vsync: this, initialIndex: 2);
+class _BottomBarState extends State<BottomBar> {
+  int _selectIndex = 0;
+
+  static final List<Widget> _widgetOptins = <Widget>[
+    ProfileScreen(),
+    History(),
+    HomeScreen(),
+    BuyPlays(),
+    MenuScreen()
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 231, 238, 244),
-      bottomNavigationBar: Container(
-        color: Colors.grey,
-        child: TabBar(
-          controller: _tabController,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white70,
-          indicatorSize: TabBarIndicatorSize.tab,
-          indicatorPadding: EdgeInsets.all(5.0),
-          indicatorColor: Colors.blue,
-          tabs: const <Widget>[
-            Tab(
-              icon: Icon(Icons.person),
-            ),
-            Tab(icon: Icon(Icons.history)),
-            Tab(icon: Icon(Icons.home)),
-            Tab(icon: Icon(Icons.shop)),
-            Tab(
-              icon: Icon(Icons.menu),
-            )
-          ],
-        ),
+      body: Center(
+        child: _widgetOptins[_selectIndex],
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          Center(
-            child: ProfileScreen(),
-          ),
-          Center(
-            child: History(),
-          ),
-          Center(
-            child: HomeScreen(),
-          ),
-          Center(
-            child: BuyPlays(),
-          ),
-          Center(
-            child: MenuScreen(),
-          ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectIndex,
+        onTap: _onItemTapped,
+        elevation: 10,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        selectedItemColor: Colors.blueGrey,
+        type: BottomNavigationBarType.fixed,
+        unselectedItemColor: const Color(0xFF526480),
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(FluentSystemIcons.ic_fluent_person_regular),
+              activeIcon: Icon(FluentSystemIcons.ic_fluent_person_filled),
+              label: 'Profile'),
+          BottomNavigationBarItem(
+              icon: Icon(FluentSystemIcons.ic_fluent_history_regular),
+              activeIcon: Icon(FluentSystemIcons.ic_fluent_history_filled),
+              label: 'History'),
+          BottomNavigationBarItem(
+              icon: Icon(FluentSystemIcons.ic_fluent_home_regular),
+              activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled),
+              label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(FluentSystemIcons.ic_fluent_store_regular),
+              activeIcon: Icon(FluentSystemIcons.ic_fluent_store_filled),
+              label: 'Store'),
+          BottomNavigationBarItem(
+              icon: Icon(FluentSystemIcons.ic_fluent_timeline_regular),
+              activeIcon: Icon(FluentSystemIcons.ic_fluent_timeline_filled),
+              label: 'Menu')
         ],
       ),
     );
