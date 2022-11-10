@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/screens/menu.dart';
 import 'package:heocondihoc/screens/pay.dart';
@@ -21,7 +22,7 @@ class _BottomBarState extends State<BottomBar> {
     ProfileScreen(),
     History(),
     HomeScreen(),
-    NapTienScreen(),
+    BuyPlays(),
     MenuScreen()
   ];
 
