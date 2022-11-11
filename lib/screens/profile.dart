@@ -233,7 +233,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 Row(
                                   children: [
                                     Text(
-                                      ' Tỉ lệ\n trả lời đúng: 1',
+                                      ' Tỉ lệ trả lời\n đúng: 80%',
                                       style: TextStyle(fontSize: 20),
                                     )
                                   ],
