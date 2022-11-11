@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 
 class SingleMatch extends StatefulWidget {
@@ -32,7 +35,11 @@ class _SingleMatchState extends State<SingleMatch> {
                     foregroundColor: myColor,
                     shadowColor: background_color,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) => BottomBar())));
+                  },
                   icon: Icon(Icons.arrow_circle_left_outlined),
                   label: Text('')),
               Padding(padding: EdgeInsets.only(left: 100)),
@@ -144,10 +151,11 @@ class _SingleMatchState extends State<SingleMatch> {
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(20)),
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black54,
-                ),
+                style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.resolveWith(forgeanser),
+                    backgroundColor:
+                        MaterialStateProperty.resolveWith(ansercorret)),
                 onPressed: () {},
                 child: Text('A. 5500 năm trước'),
               )),
@@ -159,10 +167,11 @@ class _SingleMatchState extends State<SingleMatch> {
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(20)),
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black54,
-                ),
+                style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.resolveWith(forgeanser),
+                    backgroundColor:
+                        MaterialStateProperty.resolveWith(anserwrong)),
                 onPressed: () {},
                 child: Text('B. 4000 năm trước'),
               )),
@@ -174,10 +183,11 @@ class _SingleMatchState extends State<SingleMatch> {
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(20)),
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black54,
-                ),
+                style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.resolveWith(forgeanser),
+                    backgroundColor:
+                        MaterialStateProperty.resolveWith(anserwrong)),
                 onPressed: () {},
                 child: Text('C. 3000 năm trước'),
               )),
@@ -189,10 +199,11 @@ class _SingleMatchState extends State<SingleMatch> {
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(20)),
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black54,
-                ),
+                style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.resolveWith(forgeanser),
+                    backgroundColor:
+                        MaterialStateProperty.resolveWith(anserwrong)),
                 onPressed: () {},
                 child: Text('D. 2000 năm trước'),
               )),

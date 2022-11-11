@@ -53,3 +53,43 @@ Color getColor3(Set<MaterialState> states) {
   }
   return Color.fromARGB(255, 255, 17, 17);
 }
+
+Color anserwrong(Set<MaterialState> states) {
+  const Set<MaterialState> interactiveStates = <MaterialState>{
+    MaterialState.pressed,
+    MaterialState.hovered,
+    MaterialState.focused,
+  };
+  if (states.any(interactiveStates.contains)) {
+    return Colors.red;
+  }
+  return Color.fromARGB(255, 255, 255, 255);
+}
+
+Color ansercorret(Set<MaterialState> states) {
+  const Set<MaterialState> interactiveStates = <MaterialState>{
+    MaterialState.pressed,
+    MaterialState.hovered,
+    MaterialState.focused,
+    MaterialState.dragged,
+    MaterialState.selected
+  };
+  if (states.any(interactiveStates.contains)) {
+    return Colors.green;
+  }
+  return Color.fromARGB(255, 255, 255, 255);
+}
+
+Color forgeanser(Set<MaterialState> states) {
+  const Set<MaterialState> interactiveStates = <MaterialState>{
+    MaterialState.pressed,
+    MaterialState.hovered,
+    MaterialState.focused,
+    MaterialState.dragged,
+    MaterialState.selected
+  };
+  if (states.any(interactiveStates.contains)) {
+    return Colors.black;
+  }
+  return Colors.black;
+}
