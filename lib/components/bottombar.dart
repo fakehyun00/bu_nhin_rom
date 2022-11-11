@@ -48,28 +48,31 @@ class _BottomBarState extends State<BottomBar> {
         selectedItemColor: Colors.blueGrey,
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: const Color(0xFF526480),
-        items: const [
-          BottomNavigationBarItem(
+        items: [
+          const BottomNavigationBarItem(
               icon: Icon(FluentSystemIcons.ic_fluent_person_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_person_filled),
               label: 'Profile'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(FluentSystemIcons.ic_fluent_history_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_history_filled),
               label: 'History'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(FluentSystemIcons.ic_fluent_home_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled),
               label: 'Home'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(FluentSystemIcons.ic_fluent_store_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_store_filled),
               label: 'Store'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
+              icon: Icon(
+                Icons.menu,
+                color: Colors.grey,
+              ),
               activeIcon: Icon(
                 Icons.menu,
-                color: Colors.blue,
+                color: Colors.grey.shade800,
               ),
               label: 'Menu')
         ],
