@@ -5,6 +5,7 @@ import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/screens/menu.dart';
 import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/profile.dart';
+import 'package:heocondihoc/screens/shop.dart';
 
 import '../screens/home.dart';
 
@@ -16,13 +17,13 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _selectIndex = 0;
+  int _selectIndex = 2;
 
   static final List<Widget> _widgetOptins = <Widget>[
     ProfileScreen(),
     History(),
     HomeScreen(),
-    BuyPlays(),
+    ShopScreen(),
     MenuScreen()
   ];
 
@@ -65,8 +66,11 @@ class _BottomBarState extends State<BottomBar> {
               activeIcon: Icon(FluentSystemIcons.ic_fluent_store_filled),
               label: 'Store'),
           BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_timeline_regular),
-              activeIcon: Icon(FluentSystemIcons.ic_fluent_timeline_filled),
+              icon: Icon(Icons.menu),
+              activeIcon: Icon(
+                Icons.menu,
+                color: Colors.blue,
+              ),
               label: 'Menu')
         ],
       ),

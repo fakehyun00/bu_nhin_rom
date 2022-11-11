@@ -31,17 +31,83 @@ class _ProfileScreenState extends State<ProfileScreen> {
             },
             selectedIndex: currentPageIndex,
             destinations: const <Widget>[
+              // ElevatedButton(onPressed: () {}, child: Text('Thành Tích')),
+              // ElevatedButton(onPressed: () {}, child: Text('Thống Kê')),
               NavigationDestination(
+                icon: Text('Thành Tích'),
                 label: '',
-                icon: Icon(Icons.dangerous),
               ),
-              NavigationDestination(icon: Icon(Icons.dangerous), label: ''),
+              NavigationDestination(icon: Text('Thống Kê'), label: ''),
             ]),
         Gap(20),
         <Widget>[
           Container(
-            // color: Colors.red,
-            // alignment: Alignment.center,
+            child: Column(
+              children: const [
+                Card(
+                  child: ListTile(
+                    title: Text(
+                      'Kẻ Săn Quiz',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    tileColor: Colors.green,
+                    subtitle: Text('Chơi 3 ngày liên tiếp'),
+                  ),
+                ),
+                Card(
+                  child: ListTile(
+                    title: Text(
+                      'Kẻ Săn Quiz',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    tileColor: Colors.green,
+                    subtitle: Text('Chơi 3 ngày liên tiếp'),
+                  ),
+                ),
+                Card(
+                  child: ListTile(
+                    title: Text(
+                      'Kẻ Săn Quiz',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    tileColor: Colors.green,
+                    subtitle: Text('Chơi 3 ngày liên tiếp'),
+                  ),
+                ),
+                Card(
+                  child: ListTile(
+                    title: Text(
+                      'Kẻ Săn Quiz',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    tileColor: Colors.green,
+                    subtitle: Text('Chơi 3 ngày liên tiếp'),
+                  ),
+                ),
+                Card(
+                  child: ListTile(
+                    title: Text(
+                      'Kẻ Săn Quiz',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    tileColor: Colors.green,
+                    subtitle: Text('Chơi 3 ngày liên tiếp'),
+                  ),
+                ),
+                Card(
+                  child: ListTile(
+                    title: Text(
+                      'Kẻ Săn Quiz',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    tileColor: Colors.green,
+                    subtitle: Text('Chơi 3 ngày liên tiếp'),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
             child: Column(
               children: [
                 Row(
@@ -102,7 +168,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 Row(
                                   children: [
                                     Text(
-                                      ' Ngày tham gia:\n 11/11/2022 ',
+                                      ' Ngày tham gia:\n 11/11/2022',
                                       style: TextStyle(fontSize: 20),
                                     )
                                   ],
@@ -178,11 +244,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 )
               ],
             ),
-          ),
-          Container(
-            color: Colors.green,
-            alignment: Alignment.center,
-            child: const Text('Page 2'),
           ),
         ][currentPageIndex],
       ]),
