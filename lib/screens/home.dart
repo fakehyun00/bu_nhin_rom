@@ -7,6 +7,7 @@ import 'package:gap/gap.dart';
 
 import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/history.dart';
+import 'package:heocondihoc/screens/match_screen.dart';
 import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/rank.dart';
 
@@ -59,7 +60,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ))),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MatchScreen()));
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [Text('Chơi', style: TextStyle(fontSize: 22))],

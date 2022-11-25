@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
+import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/logo.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
+import 'package:heocondihoc/screens/home.dart';
 
 class NapTienScreen extends StatefulWidget {
   const NapTienScreen({super.key});
@@ -23,7 +25,19 @@ class _NapTienScreenState extends State<NapTienScreen> {
         Container(
             child: Column(
           children: [
-            Gap(20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                BackButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BottomBar()));
+                  },
+                  color: myColor,
+                )
+              ],
+            ),
             logo,
             Gap(10),
             const Text(

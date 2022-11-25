@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
+import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/header_info.dart';
 import 'package:heocondihoc/models/item.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
+import 'package:heocondihoc/screens/login.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -78,6 +80,8 @@ class _MenuScreenState extends State<MenuScreen> {
                           Expanded(
                             flex: 9,
                             child: Slider(
+                              //activeColor: _changeSlider, //màu của thanh slider
+                              //thumbColor: Colors.amber, //màu của nút tròn
                               value: _values1,
                               onChanged: (new_value1) {
                                 setState(() {
@@ -167,7 +171,46 @@ class _MenuScreenState extends State<MenuScreen> {
                           RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ))),
-                  onPressed: () {},
+                  onPressed: () => showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            backgroundColor: Color.fromARGB(255, 243, 172, 156),
+                            content: Text(
+                              'Bạn muốn đăng xuất ?',
+                              textAlign: TextAlign.center,
+                            ),
+                            actions: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  ElevatedButton(
+                                      style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.resolveWith(
+                                                  getColor3)),
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  LoginScreen(),
+                                            ));
+                                      },
+                                      child: Text('Đồng ý')),
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text(
+                                        'Quay lại',
+                                        style: TextStyle(color: Colors.black),
+                                      ))
+                                ],
+                              )
+                            ],
+                          )),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [

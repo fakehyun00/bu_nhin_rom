@@ -5,6 +5,7 @@ import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/screens/menu.dart';
 import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/profile.dart';
+import 'package:heocondihoc/screens/shop.dart';
 
 import '../screens/home.dart';
 
@@ -16,13 +17,13 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _selectIndex = 0;
+  int _selectIndex = 2;
 
   static final List<Widget> _widgetOptins = <Widget>[
     ProfileScreen(),
     History(),
     HomeScreen(),
-    BuyPlays(),
+    ShopScreen(),
     MenuScreen()
   ];
 
@@ -47,26 +48,32 @@ class _BottomBarState extends State<BottomBar> {
         selectedItemColor: Colors.blueGrey,
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: const Color(0xFF526480),
-        items: const [
-          BottomNavigationBarItem(
+        items: [
+          const BottomNavigationBarItem(
               icon: Icon(FluentSystemIcons.ic_fluent_person_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_person_filled),
               label: 'Profile'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(FluentSystemIcons.ic_fluent_history_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_history_filled),
               label: 'History'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(FluentSystemIcons.ic_fluent_home_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled),
               label: 'Home'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(FluentSystemIcons.ic_fluent_store_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_store_filled),
               label: 'Store'),
           BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_timeline_regular),
-              activeIcon: Icon(FluentSystemIcons.ic_fluent_timeline_filled),
+              icon: Icon(
+                Icons.menu,
+                color: Colors.grey,
+              ),
+              activeIcon: Icon(
+                Icons.menu,
+                color: Colors.grey.shade800,
+              ),
               label: 'Menu')
         ],
       ),
