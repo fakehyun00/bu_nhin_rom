@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: background_color,
         body: Column(children: [
           Container(
-            padding: EdgeInsets.only(top: 40),
+            padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [ItemBar()],

@@ -6,6 +6,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 
+import '../models/item.dart';
+
 class SingleMatch extends StatefulWidget {
   const SingleMatch({super.key});
 
@@ -25,73 +27,26 @@ class _SingleMatchState extends State<SingleMatch> {
     return Scaffold(
         backgroundColor: background_color,
         body: Column(children: [
-          Container(
-            padding: EdgeInsets.only(top: 25),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: background_color,
-                    foregroundColor: myColor,
-                    shadowColor: background_color,
-                  ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(padding: EdgeInsets.only(top: 101)),
+              Container(
+                padding: EdgeInsets.only(right: 120),
+                child: BackButton(
                   onPressed: () {
                     Navigator.pop(context);
                     Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => BottomBar())));
+                        MaterialPageRoute(builder: (context) => BottomBar()));
                   },
-                  icon: Icon(Icons.arrow_circle_left_outlined),
-                  label: Text('')),
-              Padding(padding: EdgeInsets.only(left: 100)),
-              Icon(
-                Icons.star,
-                size: 22,
-                color: Colors.amber[600],
-              ),
-              Container(
-                margin: EdgeInsets.only(right: 5),
-                padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: myColor),
-                    borderRadius: BorderRadius.circular(50)),
-                child: Text(
-                  '100',
-                  style: TextStyle(color: myColor),
+                  color: Colors.white,
                 ),
               ),
-              Icon(
-                Icons.cake,
-                size: 22,
-                color: Colors.amber[600],
-              ),
               Container(
-                margin: EdgeInsets.only(right: 5),
-                padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: myColor),
-                    borderRadius: BorderRadius.circular(50)),
-                child: Text(
-                  '100',
-                  style: TextStyle(color: myColor),
-                ),
-              ),
-              Icon(
-                Icons.favorite,
-                size: 22,
-                color: Colors.red,
-              ),
-              Container(
-                margin: EdgeInsets.only(right: 5),
-                padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: myColor),
-                    borderRadius: BorderRadius.circular(50)),
-                child: Text(
-                  '100',
-                  style: TextStyle(color: myColor),
-                ),
-              ),
-            ]),
+                padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
+                child: ItemBar(),
+              )
+            ],
           ),
           Container(
             child: Row(

@@ -43,67 +43,69 @@ class _MenuScreenState extends State<MenuScreen> {
         backgroundColor: background_color,
         body: ListView(children: [
           Container(
+              padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
               child: Column(children: [
-            HeaderInfo(),
-            divider,
-            Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(left: 15, right: 15),
-                      decoration: BoxDecoration(
-                          color: myColor,
-                          borderRadius: BorderRadius.circular(10)),
-                      height: 40,
-                      width: MediaQuery.of(context).size.width / 1.2,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Âm lượng',
-                            style: TextStyle(fontSize: 22),
+                HeaderInfo(),
+                divider,
+                Container(
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(left: 15, right: 15),
+                          decoration: BoxDecoration(
+                              color: myColor,
+                              borderRadius: BorderRadius.circular(10)),
+                          height: 40,
+                          width: MediaQuery.of(context).size.width / 1.2,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Âm lượng',
+                                style: TextStyle(fontSize: 22),
+                              ),
+                              InkWell(
+                                onTap: changeVolumn1,
+                                child: Icon(isVolume1
+                                    ? Icons.volume_up_outlined
+                                    : Icons.volume_off_outlined),
+                              )
+                            ],
                           ),
-                          InkWell(
-                            onTap: changeVolumn1,
-                            child: Icon(isVolume1
-                                ? Icons.volume_up_outlined
-                                : Icons.volume_off_outlined),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            flex: 9,
-                            child: Slider(
-                              //activeColor: _changeSlider, //màu của thanh slider
-                              //thumbColor: Colors.amber, //màu của nút tròn
-                              value: _values1,
-                              onChanged: (new_value1) {
-                                setState(() {
-                                  _values1 = new_value1;
-                                });
-                              },
-                              min: 1,
-                              max: 10,
-                            ),
+                        ),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                flex: 9,
+                                child: Slider(
+                                  //activeColor: _changeSlider, //màu của thanh slider
+                                  //thumbColor: Colors.amber, //màu của nút tròn
+                                  value: _values1,
+                                  onChanged: (new_value1) {
+                                    setState(() {
+                                      _values1 = new_value1;
+                                    });
+                                  },
+                                  min: 1,
+                                  max: 10,
+                                ),
+                              ),
+                              Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    _values1.toInt().toString(),
+                                    style:
+                                        TextStyle(color: myColor, fontSize: 22),
+                                  ))
+                            ],
                           ),
-                          Expanded(
-                              flex: 1,
-                              child: Text(
-                                _values1.toInt().toString(),
-                                style: TextStyle(color: myColor, fontSize: 22),
-                              ))
-                        ],
-                      ),
-                    ),
-                  ],
-                )),
-          ])),
+                        ),
+                      ],
+                    )),
+              ])),
           Container(
               padding: EdgeInsets.all(10),
               child: Column(

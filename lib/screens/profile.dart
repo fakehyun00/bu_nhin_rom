@@ -19,6 +19,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: background_color,
       body: Column(children: [
         Container(
+          padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
           child: HeaderInfo(),
         ),
         divider,

@@ -12,6 +12,7 @@ class _ItemBarState extends State<ItemBar> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Icon(
           Icons.star,
