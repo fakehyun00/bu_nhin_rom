@@ -11,6 +11,7 @@ import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/singlematch.dart';
 import 'package:heocondihoc/screens/singlematch_answer.dart';
 import 'package:heocondihoc/screens/singlematch_wrong.dart';
+import 'package:heocondihoc/screens/win_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,9 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-
-      home: const RegisterScreen(),
-
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

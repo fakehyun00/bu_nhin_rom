@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/logo.dart';
+import 'package:heocondihoc/screens/home.dart';
 import 'package:heocondihoc/screens/singlematch.dart';
 
 import '../models/item.dart';
@@ -29,13 +31,21 @@ class _MatchScreenState extends State<MatchScreen> {
                   Padding(padding: EdgeInsets.only(top: 101)),
                   Container(
                     padding: EdgeInsets.only(right: 120),
-                    child: Icon(
-                      Icons.arrow_back_rounded,
-                      size: 35,
+                    child: BackButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BottomBar()));
+                      },
                       color: Colors.white,
                     ),
                   ),
-                  ItemBar()
+                  Container(
+                    padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
+                    child: ItemBar(),
+                  )
                 ],
               ),
               Gap(10),
