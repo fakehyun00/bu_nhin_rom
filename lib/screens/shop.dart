@@ -21,13 +21,7 @@ class _ShopScreenState extends State<ShopScreen> {
       body: Container(
         decoration: background,
         child: Column(children: [
-          Container(
-            padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [ItemBar()],
-            ),
-          ),
+          ItemBar(),
           Padding(padding: EdgeInsets.all(20)),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
