@@ -79,6 +79,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             SizedBox(
                               height: 40,
                               child: TextField(
+                                cursorHeight: 20,
                                 decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
