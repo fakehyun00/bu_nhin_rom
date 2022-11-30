@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/item.dart';
+import 'package:heocondihoc/screens/editprofilescreen.dart';
 
 class HeaderInfo extends StatefulWidget {
   const HeaderInfo({super.key});
@@ -15,6 +16,7 @@ class _HeaderInfoState extends State<HeaderInfo> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(top: 20),
       child: Column(
         children: [
           Row(
@@ -36,7 +38,7 @@ class _HeaderInfoState extends State<HeaderInfo> {
                     ),
                   )),
               Expanded(
-                  flex: 7,
+                  flex: 6,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
@@ -46,6 +48,19 @@ class _HeaderInfoState extends State<HeaderInfo> {
                       Text('Level: 2', style: TextStyle(color: myColor))
                     ],
                   )),
+              Expanded(
+                  flex: 1,
+                  child: IconButton(
+                    icon: Icon(Icons.pending_actions_outlined),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EditProfileScreen()));
+                    },
+                    color: Colors.green,
+                  ))
             ],
           ),
           Row(

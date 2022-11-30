@@ -5,14 +5,14 @@ import 'package:heocondihoc/screens/match_screen.dart';
 
 import '../models/item.dart';
 
-class WinScreen extends StatefulWidget {
-  const WinScreen({super.key});
+class LoseScreen extends StatefulWidget {
+  const LoseScreen({super.key});
 
   @override
-  State<WinScreen> createState() => _WinScreenState();
+  State<LoseScreen> createState() => _LoseScreenState();
 }
 
-class _WinScreenState extends State<WinScreen> {
+class _LoseScreenState extends State<LoseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,15 +69,16 @@ class _WinScreenState extends State<WinScreen> {
             Gap(30),
             Container(
               child: Image.network(
-                'https://cdn-icons-png.flaticon.com/512/3112/3112946.png',
+                'https://cdn-icons-png.flaticon.com/512/8346/8346459.png',
                 width: 100,
                 height: 100,
+                color: Colors.white,
               ),
             ),
             Gap(20),
             Container(
                 child: Text(
-              'Winner',
+              'Loser',
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
