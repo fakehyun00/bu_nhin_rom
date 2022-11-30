@@ -18,61 +18,15 @@ class _ShopScreenState extends State<ShopScreen> {
   final color_buyleft = Color.fromARGB(200, 243, 144, 215);
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: background_color,
-        body: Column(children: [
+      body: Container(
+        decoration: background,
+        child: Column(children: [
           Container(
-            padding: EdgeInsets.only(top: 25),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-            child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-              Icon(
-                Icons.star,
-                size: 22,
-                color: Colors.amber[600],
-              ),
-              Container(
-                margin: EdgeInsets.only(right: 5),
-                padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: myColor),
-                    borderRadius: BorderRadius.circular(50)),
-                child: Text(
-                  '100',
-                  style: TextStyle(color: myColor),
-                ),
-              ),
-              Icon(
-                Icons.cake,
-                size: 22,
-                color: Colors.amber[600],
-              ),
-              Container(
-                margin: EdgeInsets.only(right: 5),
-                padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: myColor),
-                    borderRadius: BorderRadius.circular(50)),
-                child: Text(
-                  '100',
-                  style: TextStyle(color: myColor),
-                ),
-              ),
-              Icon(
-                Icons.favorite,
-                size: 22,
-                color: Colors.red,
-              ),
-              Container(
-                margin: EdgeInsets.only(right: 5),
-                padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: myColor),
-                    borderRadius: BorderRadius.circular(50)),
-                child: Text(
-                  '100',
-                  style: TextStyle(color: myColor),
-                ),
-              ),
-            ]),
+            padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [ItemBar()],
+            ),
           ),
           Padding(padding: EdgeInsets.all(20)),
           Row(
@@ -106,6 +60,7 @@ class _ShopScreenState extends State<ShopScreen> {
                   children: [
                     Icon(
                       Icons.favorite_sharp,
+                      color: Colors.red,
                     )
                   ],
                 )
@@ -117,7 +72,7 @@ class _ShopScreenState extends State<ShopScreen> {
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: color_buyleft),
-            height: 50,
+            height: 60,
             width: 300,
             child: Column(
               children: [
@@ -128,7 +83,7 @@ class _ShopScreenState extends State<ShopScreen> {
                       margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
                       padding: EdgeInsets.only(left: 10),
                       child: Text(
-                        'Một Mạng',
+                        '1 Mạng',
                         style: TextStyle(
                             color: Colors.black54, fontWeight: FontWeight.bold),
                       ),
@@ -137,8 +92,8 @@ class _ShopScreenState extends State<ShopScreen> {
                       child: Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.fromLTRB(26, 0, 0, 0),
-                              padding: EdgeInsets.only(left: 111),
+                              margin: EdgeInsets.fromLTRB(26, 10, 0, 0),
+                              padding: EdgeInsets.only(left: 100),
                               child: Row(
                                 children: [
                                   ElevatedButton(
@@ -151,7 +106,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                           Icon(Icons.money_sharp),
                                           Padding(
                                               padding: EdgeInsets.fromLTRB(
-                                                  5, 0, 10, 0)),
+                                                  5, 0, 5, 0)),
                                           Text('5')
                                         ],
                                       )),
@@ -165,12 +120,11 @@ class _ShopScreenState extends State<ShopScreen> {
               ],
             ),
           ),
-          Padding(padding: EdgeInsets.all(10)),
           Container(
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: color_buyleft),
-            height: 50,
+            height: 60,
             width: 300,
             child: Column(
               children: [
@@ -178,10 +132,10 @@ class _ShopScreenState extends State<ShopScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                      margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
                       padding: EdgeInsets.only(left: 10),
                       child: Text(
-                        'Vài Xu Lẻ',
+                        '5 Mạng',
                         style: TextStyle(
                             color: Colors.black54, fontWeight: FontWeight.bold),
                       ),
@@ -190,8 +144,8 @@ class _ShopScreenState extends State<ShopScreen> {
                       child: Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.fromLTRB(26, 0, 0, 0),
-                              padding: EdgeInsets.only(left: 121),
+                              margin: EdgeInsets.fromLTRB(26, 10, 0, 0),
+                              padding: EdgeInsets.only(left: 100),
                               child: Row(
                                 children: [
                                   ElevatedButton(
@@ -204,7 +158,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                           Icon(Icons.money_sharp),
                                           Padding(
                                               padding: EdgeInsets.fromLTRB(
-                                                  5, 0, 10, 0)),
+                                                  5, 0, 5, 0)),
                                           Text('5')
                                         ],
                                       )),
@@ -218,12 +172,11 @@ class _ShopScreenState extends State<ShopScreen> {
               ],
             ),
           ),
-          Padding(padding: EdgeInsets.all(10)),
           Container(
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: color_buyleft),
-            height: 50,
+            height: 60,
             width: 300,
             child: Column(
               children: [
@@ -231,31 +184,20 @@ class _ShopScreenState extends State<ShopScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                        margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
-                        padding: EdgeInsets.only(left: 10),
-                        child: Column(
-                          children: [
-                            Text(
-                              'Mạng Vô Hạn',
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              '1 giờ',
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10),
-                            ),
-                          ],
-                        )),
+                      margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        'Vô hạn Mạng\n 1h',
+                        style: TextStyle(
+                            color: Colors.black54, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                     Container(
                       child: Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.fromLTRB(26, 0, 0, 0),
-                              padding: EdgeInsets.only(left: 90),
+                              margin: EdgeInsets.fromLTRB(26, 10, 0, 0),
+                              padding: EdgeInsets.only(left: 63),
                               child: Row(
                                 children: [
                                   ElevatedButton(
@@ -268,7 +210,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                           Icon(Icons.money_sharp),
                                           Padding(
                                               padding: EdgeInsets.fromLTRB(
-                                                  5, 0, 10, 0)),
+                                                  5, 0, 5, 0)),
                                           Text('5')
                                         ],
                                       )),
@@ -282,12 +224,11 @@ class _ShopScreenState extends State<ShopScreen> {
               ],
             ),
           ),
-          Padding(padding: EdgeInsets.all(10)),
           Container(
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: color_buyleft),
-            height: 50,
+            height: 60,
             width: 300,
             child: Column(
               children: [
@@ -295,32 +236,20 @@ class _ShopScreenState extends State<ShopScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                        padding: EdgeInsets.only(left: 10),
-                        margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
-                        child: Column(
-                          children: [
-                            Text(
-                              'Mạng Vô Hạn',
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              '3 giờ',
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10),
-                            ),
-                          ],
-                        )),
+                      margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        'Vô hạn mạng\n 3h',
+                        style: TextStyle(
+                            color: Colors.black54, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                     Container(
-                      margin: EdgeInsets.only(left: 90),
                       child: Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.fromLTRB(26, 0, 0, 0),
-                              padding: EdgeInsets.only(top: 2),
+                              margin: EdgeInsets.fromLTRB(26, 10, 0, 0),
+                              padding: EdgeInsets.only(left: 63),
                               child: Row(
                                 children: [
                                   ElevatedButton(
@@ -333,7 +262,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                           Icon(Icons.money_sharp),
                                           Padding(
                                               padding: EdgeInsets.fromLTRB(
-                                                  5, 0, 10, 0)),
+                                                  5, 0, 5, 0)),
                                           Text('5')
                                         ],
                                       )),
@@ -347,6 +276,8 @@ class _ShopScreenState extends State<ShopScreen> {
               ],
             ),
           ),
-        ]));
+        ]),
+      ),
+    );
   }
 }

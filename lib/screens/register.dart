@@ -28,10 +28,11 @@ class RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background_color,
+      resizeToAvoidBottomInset: false,
       body: ListView(
         children: [
           Container(
+            decoration: background,
             padding: EdgeInsets.all(10),
             child: Column(
               children: [
