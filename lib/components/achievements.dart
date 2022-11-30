@@ -11,6 +11,7 @@ class Achievements extends StatefulWidget {
 class _AchievementsState extends State<Achievements> {
   @override
   Widget build(BuildContext context) {
+
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
@@ -79,9 +80,11 @@ class _AchievementsState extends State<Achievements> {
                 ),
               ],
             ),
+
+   
           ),
         ],
-      ),
+      )),
     );
   }
 }
