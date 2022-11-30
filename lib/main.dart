@@ -12,6 +12,7 @@ import 'package:heocondihoc/screens/singlematch.dart';
 import 'package:heocondihoc/screens/singlematch_answer.dart';
 import 'package:heocondihoc/screens/singlematch_wrong.dart';
 import 'package:heocondihoc/screens/win_screen.dart';
+import 'package:heocondihoc/screens/editprofilescreen.dart';
 
 void main() {
   runApp(const MyApp());
