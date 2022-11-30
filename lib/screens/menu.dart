@@ -43,6 +43,7 @@ class _MenuScreenState extends State<MenuScreen> {
         body: Container(
       decoration: background,
       child: Column(children: [
+        ItemBar(),
         HeaderInfo(),
         Container(
             padding: EdgeInsets.fromLTRB(5, 5, 5, 0),

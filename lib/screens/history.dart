@@ -20,11 +20,11 @@ class _HistoryState extends State<History> {
         body: Container(
             decoration: background,
             child: Column(children: [
+              ItemBar(),
               Padding(
                 padding: EdgeInsets.only(top: 20),
                 child: Column(
                   children: [
-                    ItemBar(),
                     Gap(20),
                     Text(
                       'Lịch sử',

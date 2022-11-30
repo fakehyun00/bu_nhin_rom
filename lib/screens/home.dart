@@ -25,13 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Container(
       decoration: background,
       child: Column(children: [
-        Container(
-          padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [ItemBar()],
-          ),
-        ),
+        ItemBar(),
         Gap(70),
         Row(
           children: [
