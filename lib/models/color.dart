@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 const myColor = Colors.white;
 
 //background
-final background_color = Color.fromARGB(255, 67, 44, 122);
+final background = BoxDecoration(
+    image: DecorationImage(
+        fit: BoxFit.fill,
+        image: NetworkImage(
+          'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5904f729875233.5608b9a200122.png',
+        )));
 
 Color getColor(Set<MaterialState> states) {
   const Set<MaterialState> interactiveStates = <MaterialState>{
