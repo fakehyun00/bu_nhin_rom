@@ -37,7 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   gap: ^2.0.0
   flutter_signin_button: ^2.0.0
-  fluentui_icons: ^1.0.0
+  google_nav_bar: ^5.0.6
+  line_icons: ^2.0.1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,7 @@ flutter:
   assets:
     - assets/logo.png
     - assets/fblogo.png
+    - assets/background_DA.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
