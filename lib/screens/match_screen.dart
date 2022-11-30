@@ -19,91 +19,91 @@ class _MatchScreenState extends State<MatchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background_color,
       body: Container(
+          decoration: background,
           child: Column(
-        children: [
-          Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Column(
                 children: [
-                  Padding(padding: EdgeInsets.only(top: 101)),
-                  Container(
-                    padding: EdgeInsets.only(right: 120),
-                    child: BackButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => BottomBar()));
-                      },
-                      color: Colors.white,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(padding: EdgeInsets.only(top: 101)),
+                      Container(
+                        padding: EdgeInsets.only(right: 120),
+                        child: BackButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BottomBar()));
+                          },
+                          color: Colors.white,
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
+                        child: ItemBar(),
+                      )
+                    ],
                   ),
+                  Gap(10),
                   Container(
-                    padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
-                    child: ItemBar(),
-                  )
+                    child: logo,
+                  ),
+                  Gap(20),
+                  Container(
+                      padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
+                      child: Container(
+                        height: 100,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              minimumSize: Size(260, 80),
+                              backgroundColor: Colors.purple.shade300),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SingleMatch()));
+                          },
+                          child: Container(
+                            child: Text(
+                              'Đấu đơn',
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ),
+                        ),
+                      )),
+                  Gap(20),
+                  Container(
+                      padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
+                      child: Container(
+                        height: 100,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              minimumSize: Size(260, 80),
+                              backgroundColor: Colors.pink.shade200),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SingleMatch()));
+                          },
+                          child: Container(
+                            child: Text(
+                              'Đối kháng',
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ),
+                        ),
+                      )),
                 ],
               ),
-              Gap(10),
-              Container(
-                child: logo,
-              ),
-              Gap(20),
-              Container(
-                  padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-                  child: Container(
-                    height: 100,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(260, 80),
-                          backgroundColor: Colors.purple.shade300),
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SingleMatch()));
-                      },
-                      child: Container(
-                        child: Text(
-                          'Đấu đơn',
-                          style: TextStyle(fontSize: 25),
-                        ),
-                      ),
-                    ),
-                  )),
-              Gap(20),
-              Container(
-                  padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-                  child: Container(
-                    height: 100,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(260, 80),
-                          backgroundColor: Colors.pink.shade200),
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SingleMatch()));
-                      },
-                      child: Container(
-                        child: Text(
-                          'Đối kháng',
-                          style: TextStyle(fontSize: 25),
-                        ),
-                      ),
-                    ),
-                  )),
             ],
-          ),
-        ],
-      )),
+          )),
     );
   }
 }
