@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/screens/login.dart';
 import 'package:heocondihoc/screens/home.dart';
-import 'package:heocondihoc/screens/singlematch_answer.dart';
+import 'package:heocondihoc/screens/singlematch.dart';
 
 class Quit extends StatefulWidget {
   const Quit({super.key});
@@ -82,7 +82,7 @@ class _QuitState extends State<Quit> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SingleMatch_Answer(),
+                                                      SingleMatch(),
                                                 ));
                                           },
                                           child: Text('Trở lại'))),

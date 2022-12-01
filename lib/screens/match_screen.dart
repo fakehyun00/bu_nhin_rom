@@ -21,88 +21,77 @@ class _MatchScreenState extends State<MatchScreen> {
     return Scaffold(
         body: Container(
       decoration: background,
-      child: Column(
-        children: [
-          Column(children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(padding: EdgeInsets.only(top: 101)),
-                Container(
-                  padding: EdgeInsets.only(right: 120),
-                  child: BackButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => BottomBar()));
-                    },
-                    color: Colors.white,
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
-                  child: ItemBar(),
-                )
-              ],
+      child: Column(children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 0),
+              child: BackButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BottomBar()));
+                },
+                color: Colors.white,
+              ),
             ),
-            Gap(10),
-            Container(
-              child: logo,
-            ),
-            Gap(20),
-            // Container(
-            //     padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-            //   child:
-            Container(
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/button02.png'))),
-                height: 100,
-                width: 300,
-                child: Center(
-                    child: SizedBox(
-                  width: 210,
-                  height: 100,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SingleMatch()));
-                    },
-                    child: Text('Đấu Đơn',
-                        style: TextStyle(fontSize: 25, color: myColor)),
-                  ),
-                ))),
-            Gap(20),
-            Container(
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/button3.png'))),
-                height: 100,
-                width: 300,
-                child: Center(
-                    child: SizedBox(
-                  width: 210,
-                  height: 100,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SingleMatch()));
-                    },
-                    child: Text('Đối Kháng',
-                        style: TextStyle(fontSize: 25, color: myColor)),
-                  ),
-                )))
-          ]),
-        ],
-      ),
+            ItemBar(),
+          ],
+        ),
+
+        Gap(10),
+        Container(
+          child: logo,
+        ),
+        Gap(20),
+        // Container(
+        //     padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
+        //   child:
+        Container(
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/button02.png'))),
+            height: 100,
+            width: 300,
+            child: Center(
+                child: SizedBox(
+              width: 210,
+              height: 100,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SingleMatch()));
+                },
+                child: Text('Đấu Đơn',
+                    style: TextStyle(fontSize: 25, color: myColor)),
+              ),
+            ))),
+        Gap(20),
+        Container(
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/button3.png'))),
+            height: 100,
+            width: 300,
+            child: Center(
+                child: SizedBox(
+              width: 210,
+              height: 100,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SingleMatch()));
+                },
+                child: Text('Đối Kháng',
+                    style: TextStyle(fontSize: 25, color: myColor)),
+              ),
+            )))
+      ]),
     ));
   }
 }
