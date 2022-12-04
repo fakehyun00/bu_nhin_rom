@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/header_info.dart';
 import 'package:heocondihoc/models/item.dart';
-
 import 'package:gap/gap.dart';
-
-import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/screens/match_screen.dart';
 import 'package:heocondihoc/screens/pay.dart';
