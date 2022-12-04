@@ -184,6 +184,7 @@ class _SingleMatchState extends State<SingleMatch> {
           child: ElevatedButton(
               onPressed: () {},
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     child: Text('Bỏ qua câu hỏi'),
