@@ -12,6 +12,7 @@ import 'package:heocondihoc/screens/profile.dart';
 import 'package:heocondihoc/screens/register.dart';
 
 import 'package:heocondihoc/screens/singlematch.dart';
+import 'package:heocondihoc/screens/viewprofile.dart';
 
 import 'package:heocondihoc/screens/win_screen.dart';
 import 'package:heocondihoc/screens/editprofilescreen.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RegisterScreen(),
+      home: const ViewProfileScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
