@@ -20,11 +20,6 @@ class _HeaderInfoState extends State<HeaderInfo> {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [ItemBar()],
-          ),
-          Gap(10),
-          Row(
             children: [
               Expanded(
                   flex: 3,
