@@ -4,6 +4,7 @@ import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/logo.dart';
 import 'package:heocondihoc/screens/home.dart';
+import 'package:heocondihoc/screens/level_single.dart';
 import 'package:heocondihoc/screens/singlematch.dart';
 
 import '../models/item.dart';
@@ -63,7 +64,7 @@ class _MatchScreenState extends State<MatchScreen> {
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SingleMatch()));
+                      MaterialPageRoute(builder: (context) => LevelScreen()));
                 },
                 child: Text('Đấu Đơn',
                     style: TextStyle(fontSize: 25, color: myColor)),
