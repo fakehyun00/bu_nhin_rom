@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/item.dart';
+import 'package:heocondihoc/screens/pay_bill.dart';
 
 class ShopScreen extends StatefulWidget {
   const ShopScreen({super.key});
@@ -94,7 +95,14 @@ class _ShopScreenState extends State<ShopScreen> {
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor:
                                               Colors.lightBlueAccent),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    PayBillScreen()));
+                                      },
                                       child: Row(
                                         children: [
                                           Icon(Icons.money_sharp),

@@ -95,3 +95,10 @@ Color forgeanser(Set<MaterialState> states) {
   }
   return Colors.black;
 }
+
+class Styles {
+  static TextStyle headLineStyle1 = TextStyle(
+      fontSize: 30, color: Color(0xFFF37B67), fontWeight: FontWeight.w500);
+  static TextStyle headLineStyle2 =
+      TextStyle(fontSize: 17, fontWeight: FontWeight.w900);
+}
