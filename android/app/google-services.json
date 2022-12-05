@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "851425853723",
+    "project_id": "projectflutter-f39a9",
+    "storage_bucket": "projectflutter-f39a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851425853723:android:c08c62af9a8ad54b5293be",
+        "android_client_info": {
+          "package_name": "com.example.heocondihoc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "851425853723-ivlmupu0tku6rfuknc5jtc6m4b1vsgid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXVUeJJhrmWkMJw30UG1Ptb_oyWA4Zj2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "851425853723-ivlmupu0tku6rfuknc5jtc6m4b1vsgid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
