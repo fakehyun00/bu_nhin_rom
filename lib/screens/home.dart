@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/header_info.dart';
 import 'package:heocondihoc/models/item.dart';
-
 import 'package:gap/gap.dart';
-
-import 'package:heocondihoc/screens/buyplays.dart';
 import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/screens/match_screen.dart';
 import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/rank.dart';
+import 'package:heocondihoc/screens/viewprofile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -78,14 +76,17 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                  padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-                  child: Container(
-                    height: 90,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(110, 80),
-                          padding: EdgeInsets.only(top: 25),
-                          backgroundColor: Colors.amber),
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/button02.png'))),
+                  height: 60,
+                  width: 180,
+                  child: Center(
+                      child: SizedBox(
+                    width: 210,
+                    height: 100,
+                    child: TextButton(
                       onPressed: () {
                         Navigator.pop(context);
                         Navigator.push(
@@ -93,36 +94,33 @@ class _HomeScreenState extends State<HomeScreen> {
                             MaterialPageRoute(
                                 builder: (context) => RankScreen()));
                       },
-                      child: Column(
-                        children: [
-                          Icon(Icons.wine_bar),
-                          Gap(2),
-                          Text('Bảng xếp hạng')
-                        ],
-                      ),
+                      child: Text('Bảng Xếp Hạng',
+                          style: TextStyle(fontSize: 18, color: myColor)),
                     ),
-                  )),
+                  ))),
               Container(
-                  padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-                  child: Container(
-                    height: 90,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(110, 80),
-                          padding: EdgeInsets.only(top: 25),
-                          backgroundColor: Colors.amber),
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/button02.png'))),
+                  height: 60,
+                  width: 180,
+                  child: Center(
+                      child: SizedBox(
+                    height: 65,
+                    width: 195,
+                    child: TextButton(
                       onPressed: () {
                         Navigator.pop(context);
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => NapTienScreen()));
+                                builder: (context) => PayScreen()));
                       },
-                      child: Column(
-                        children: [Icon(Icons.badge), Gap(2), Text('Nạp tiền')],
-                      ),
+                      child: Text('Nạp Tiền',
+                          style: TextStyle(fontSize: 18, color: myColor)),
                     ),
-                  )),
+                  ))),
             ],
           ),
         )

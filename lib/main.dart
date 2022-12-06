@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/screens/home.dart';
@@ -9,13 +11,16 @@ import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/pay_bill.dart';
 import 'package:heocondihoc/screens/profile.dart';
 import 'package:heocondihoc/screens/register.dart';
-import 'package:heocondihoc/screens/buyplays.dart';
+
 import 'package:heocondihoc/screens/singlematch.dart';
+import 'package:heocondihoc/screens/viewprofile.dart';
 
 import 'package:heocondihoc/screens/win_screen.dart';
 import 'package:heocondihoc/screens/editprofilescreen.dart';
 
-void main() {
+Future<void> main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -23,12 +28,12 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(),
+      home: const SingleMatch(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,3 +1,4 @@
 {
-    "github.gitAuthentication": true
+    "github.gitAuthentication": true,
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/logo.dart';
@@ -15,7 +17,14 @@ class RegisterScreen extends StatefulWidget {
 
 class RegisterScreenState extends State<RegisterScreen> {
   bool isHiden = true;
-
+  bool _validateUsername = false;
+  bool _validateEmail = false;
+  bool _validatePassword = false;
+  bool _validateConfirmPassword = false;
+  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
   bool isChecked = false;
   changeHidenPass() {
     if (mounted) {
@@ -26,10 +35,37 @@ class RegisterScreenState extends State<RegisterScreen> {
   }
 
   @override
+  void dispose() {
+    _usernameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  // Future signUp() async {
+  //   if (passwordConfirmed()) {
+  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //         email: _usernameController.text.trim(),
+  //         password: _passwordController.text.trim());
+  //   }
+  // }
+
+  // bool passwordConfirmed() {
+  //   if (_passwordController.text.trim() ==
+  //       _confirmPasswordController.text.trim()) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
+        height: double.infinity,
         decoration: background,
         child: ListView(
           children: [
@@ -54,11 +90,15 @@ class RegisterScreenState extends State<RegisterScreen> {
                             padding: const EdgeInsets.only(
                                 top: 20, left: 8, bottom: 8, right: 8),
                             child: SizedBox(
-                              height: 50,
+                              height: 75,
                               child: TextField(
+                                  controller: _usernameController,
                                   style: const TextStyle(color: Colors.white),
                                   autofocus: false,
                                   decoration: InputDecoration(
+                                      errorText: _validateUsername
+                                          ? 'Tên tài khoản không được bỏ trống!'
+                                          : null,
                                       fillColor: Colors.white,
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(50),
@@ -82,7 +122,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                         Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
-                              height: 50,
+                              height: 75,
                               child: TextField(
                                   // validator: (value) {
                                   //   if (value!.isEmpty) {
@@ -90,9 +130,13 @@ class RegisterScreenState extends State<RegisterScreen> {
                                   //   }
                                   //   return null;
                                   // },
+                                  controller: _emailController,
                                   keyboardType: TextInputType.emailAddress,
                                   style: const TextStyle(color: myColor),
                                   decoration: InputDecoration(
+                                      errorText: _validateEmail
+                                          ? 'Email không được bỏ trống'
+                                          : null,
                                       fillColor: Colors.white,
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(50),
@@ -115,11 +159,15 @@ class RegisterScreenState extends State<RegisterScreen> {
                         Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
-                              height: 50,
+                              height: 75,
                               child: TextField(
+                                  controller: _passwordController,
                                   obscureText: isHiden,
                                   style: const TextStyle(color: myColor),
                                   decoration: InputDecoration(
+                                    errorText: _validateEmail
+                                        ? 'Mật khẩu không được bỏ trống'
+                                        : null,
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(50),
                                       borderSide: const BorderSide(
@@ -152,9 +200,13 @@ class RegisterScreenState extends State<RegisterScreen> {
                             child: SizedBox(
                               height: 50,
                               child: TextField(
+                                  controller: _confirmPasswordController,
                                   obscureText: isHiden,
                                   style: const TextStyle(color: myColor),
                                   decoration: InputDecoration(
+                                    errorText: _validateConfirmPassword
+                                        ? 'Mật khẩu không trùng khớp'
+                                        : null,
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(50),
                                       borderSide: const BorderSide(
@@ -205,38 +257,34 @@ class RegisterScreenState extends State<RegisterScreen> {
                         Padding(
                           padding: const EdgeInsets.all(8),
                           child: ElevatedButton(
-                            onPressed: () => showDialog(
-                                context: context,
-                                builder: (context) => AlertDialog(
-                                      backgroundColor:
-                                          Color.fromARGB(255, 243, 172, 156),
-                                      title: Text('Đăng ký thành công'),
-                                      content:
-                                          Text('Chào mừng bạn đến với XXX'),
-                                      actions: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            ElevatedButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                  Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            LoginScreen(),
-                                                      ));
-                                                },
-                                                child: Text('Đăng nhập ngay'))
-                                          ],
-                                        )
-                                      ],
-                                    )),
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => LoginScreen()))
+                            onPressed: () {
+                              setState(() {
+                                if (_usernameController.text.isEmpty) {
+                                  _validateUsername = true;
+                                } else {
+                                  _validateUsername = false;
+                                }
+                                ;
+                                if (_emailController.text.isEmpty) {
+                                  _validateEmail = true;
+                                } else {
+                                  _validateEmail = false;
+                                }
+                                ;
+                                if (_passwordController.text.isEmpty) {
+                                  _validatePassword = true;
+                                } else {
+                                  _validatePassword = false;
+                                }
+                                ;
+                                if (_confirmPasswordController.text.isEmpty) {
+                                  _validateConfirmPassword = true;
+                                } else {
+                                  _validateConfirmPassword = false;
+                                }
+                                ;
+                              });
+                            },
                             child: Text(
                               'Đăng Ký Ngay',
                             ),

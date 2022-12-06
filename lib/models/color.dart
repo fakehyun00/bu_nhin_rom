@@ -56,30 +56,18 @@ Color getColor3(Set<MaterialState> states) {
   return Color.fromARGB(255, 255, 17, 17);
 }
 
-Color anserwrong(Set<MaterialState> states) {
+Color anwserbutton(Set<MaterialState> states) {
   const Set<MaterialState> interactiveStates = <MaterialState>{
+    MaterialState.selected,
     MaterialState.pressed,
-    MaterialState.hovered,
-    MaterialState.focused,
-  };
-  if (states.any(interactiveStates.contains)) {
-    return Colors.red;
-  }
-  return Color.fromARGB(255, 255, 255, 255);
-}
-
-Color ansercorret(Set<MaterialState> states) {
-  const Set<MaterialState> interactiveStates = <MaterialState>{
-    MaterialState.pressed,
-    MaterialState.hovered,
     MaterialState.focused,
     MaterialState.dragged,
-    MaterialState.selected
+    MaterialState.hovered,
   };
   if (states.any(interactiveStates.contains)) {
-    return Colors.green;
+    return Color(0xFF6AC259);
   }
-  return Color.fromARGB(255, 255, 255, 255);
+  return Color(0xFF8B94BC);
 }
 
 Color forgeanser(Set<MaterialState> states) {
