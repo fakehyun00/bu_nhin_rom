@@ -1,13 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:gap/gap.dart';
-import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/header_info.dart';
 import 'package:heocondihoc/models/item.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
-import 'package:heocondihoc/screens/login.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -43,18 +39,18 @@ class _MenuScreenState extends State<MenuScreen> {
         body: Container(
       decoration: background,
       child: Column(children: [
-        ItemBar(),
-        HeaderInfo(),
+        const ItemBar(),
+        const HeaderInfo(),
         Container(
-            padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
+            padding: const EdgeInsets.fromLTRB(5, 5, 5, 0),
             child: Column(children: [
               divider,
               Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     children: [
                       Container(
-                        padding: EdgeInsets.only(left: 15, right: 15),
+                        padding: const EdgeInsets.only(left: 15, right: 15),
                         decoration: BoxDecoration(
                             color: myColor,
                             borderRadius: BorderRadius.circular(10)),
@@ -63,7 +59,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'Âm lượng',
                               style: TextStyle(fontSize: 22),
                             ),
@@ -86,9 +82,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                 //activeColor: _changeSlider, //màu của thanh slider
                                 //thumbColor: Colors.amber, //màu của nút tròn
                                 value: _values1,
-                                onChanged: (new_value1) {
+                                onChanged: (newValue1) {
                                   setState(() {
-                                    _values1 = new_value1;
+                                    _values1 = newValue1;
                                   });
                                 },
                                 min: 1,
@@ -99,8 +95,8 @@ class _MenuScreenState extends State<MenuScreen> {
                                 flex: 1,
                                 child: Text(
                                   _values1.toInt().toString(),
-                                  style:
-                                      TextStyle(color: myColor, fontSize: 22),
+                                  style: const TextStyle(
+                                      color: myColor, fontSize: 22),
                                 ))
                           ],
                         ),
@@ -109,11 +105,11 @@ class _MenuScreenState extends State<MenuScreen> {
                   )),
             ])),
         Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 15, right: 15),
+                  padding: const EdgeInsets.only(left: 15, right: 15),
                   decoration: BoxDecoration(
                       color: myColor, borderRadius: BorderRadius.circular(10)),
                   height: 40,
@@ -121,7 +117,7 @@ class _MenuScreenState extends State<MenuScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Nhạc nền',
                         style: TextStyle(fontSize: 22),
                       ),
@@ -142,9 +138,9 @@ class _MenuScreenState extends State<MenuScreen> {
                         flex: 9,
                         child: Slider(
                           value: _values2,
-                          onChanged: (new_value2) {
+                          onChanged: (newValue2) {
                             setState(() {
-                              _values2 = new_value2;
+                              _values2 = newValue2;
                             });
                           },
                           min: 1,
@@ -155,7 +151,8 @@ class _MenuScreenState extends State<MenuScreen> {
                           flex: 1,
                           child: Text(
                             _values2.toInt().toString(),
-                            style: TextStyle(color: myColor, fontSize: 22),
+                            style:
+                                const TextStyle(color: myColor, fontSize: 22),
                           ))
                     ],
                   ),
@@ -163,8 +160,8 @@ class _MenuScreenState extends State<MenuScreen> {
               ],
             )),
         Container(
-            padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-            child: Container(
+            padding: const EdgeInsets.fromLTRB(35, 0, 35, 10),
+            child: SizedBox(
               height: 40,
               child: ElevatedButton(
                 style: ButtonStyle(
@@ -177,8 +174,9 @@ class _MenuScreenState extends State<MenuScreen> {
                 onPressed: () => showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                          backgroundColor: Color.fromARGB(255, 243, 172, 156),
-                          content: Text(
+                          backgroundColor:
+                              const Color.fromARGB(255, 243, 172, 156),
+                          content: const Text(
                             'Bạn muốn đăng xuất ?',
                             textAlign: TextAlign.center,
                           ),
@@ -192,19 +190,14 @@ class _MenuScreenState extends State<MenuScreen> {
                                             MaterialStateProperty.resolveWith(
                                                 getColor3)),
                                     onPressed: () {
-                                      Navigator.pop(context);
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => LoginScreen(),
-                                          ));
+                                      FirebaseAuth.instance.signOut();
                                     },
-                                    child: Text('Đồng ý')),
+                                    child: const Text('Đồng ý')),
                                 ElevatedButton(
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       'Quay lại',
                                       style: TextStyle(color: Colors.black),
                                     ))
@@ -214,11 +207,13 @@ class _MenuScreenState extends State<MenuScreen> {
                         )),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: [Text('Đăng xuất', style: TextStyle(fontSize: 22))],
+                  children: const [
+                    Text('Đăng xuất', style: TextStyle(fontSize: 22))
+                  ],
                 ),
               ),
             )),
-        Image(
+        const Image(
             width: 200,
             height: 200,
             image: NetworkImage(

@@ -24,24 +24,26 @@ class _LevelScreenState extends State<LevelScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 10),
+                padding: const EdgeInsets.only(top: 10),
                 child: BackButton(
                   onPressed: () {
                     Navigator.pop(context);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => BottomBar()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BottomBar()));
                   },
                   color: Colors.white,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
                 child: ItemBar(),
               ),
             ],
           ),
           SingleChildScrollView(
-              padding: EdgeInsets.only(top: 200),
+              padding: const EdgeInsets.only(top: 200),
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
@@ -55,7 +57,7 @@ class _LevelScreenState extends State<LevelScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SingleMatch()));
+                                    builder: (context) => const SingleMatch()));
                           },
                           child: Text('Ải 1', style: Styles.headLineStyle1),
                         ),
@@ -72,7 +74,7 @@ class _LevelScreenState extends State<LevelScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SingleMatch()));
+                                    builder: (context) => const SingleMatch()));
                           },
                           child: Text('Ải 2', style: Styles.headLineStyle1),
                         ),
@@ -89,7 +91,7 @@ class _LevelScreenState extends State<LevelScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SingleMatch()));
+                                    builder: (context) => const SingleMatch()));
                           },
                           child: Text('Ải 3', style: Styles.headLineStyle1),
                         ),
@@ -106,7 +108,7 @@ class _LevelScreenState extends State<LevelScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SingleMatch()));
+                                    builder: (context) => const SingleMatch()));
                           },
                           child: Text('Ải 4', style: Styles.headLineStyle1),
                         ),
@@ -123,7 +125,7 @@ class _LevelScreenState extends State<LevelScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SingleMatch()));
+                                    builder: (context) => const SingleMatch()));
                           },
                           child: Text('Ải 5', style: Styles.headLineStyle1),
                         ),
@@ -140,7 +142,7 @@ class _LevelScreenState extends State<LevelScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SingleMatch()));
+                                    builder: (context) => const SingleMatch()));
                           },
                           child: Text('Ải 6', style: Styles.headLineStyle1),
                         ),

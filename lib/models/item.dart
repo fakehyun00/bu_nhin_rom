@@ -12,7 +12,7 @@ class _ItemBarState extends State<ItemBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 25),
+      padding: const EdgeInsets.only(top: 25),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -22,14 +22,14 @@ class _ItemBarState extends State<ItemBar> {
             color: Colors.amber[600],
           ),
           Container(
-            padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+            padding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
             decoration: BoxDecoration(
                 border: Border.all(
                   color: myColor,
                   width: 1,
                 ),
                 borderRadius: BorderRadius.circular(50)),
-            child: Text('100', style: TextStyle(color: myColor)),
+            child: const Text('100', style: TextStyle(color: myColor)),
           ),
           Icon(
             Icons.cake,
@@ -37,29 +37,29 @@ class _ItemBarState extends State<ItemBar> {
             color: Colors.amber[600],
           ),
           Container(
-            padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+            padding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
             decoration: BoxDecoration(
                 border: Border.all(
                   color: myColor,
                   width: 1,
                 ),
                 borderRadius: BorderRadius.circular(50)),
-            child: Text('100', style: TextStyle(color: myColor)),
+            child: const Text('100', style: TextStyle(color: myColor)),
           ),
-          Icon(
+          const Icon(
             Icons.favorite,
             size: 22,
             color: Colors.red,
           ),
           Container(
-            padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+            padding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
             decoration: BoxDecoration(
                 border: Border.all(
                   color: myColor,
                   width: 1,
                 ),
                 borderRadius: BorderRadius.circular(50)),
-            child: Text(
+            child: const Text(
               '100',
               style: TextStyle(color: myColor),
             ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:heocondihoc/components/achievements.dart';
 import 'package:heocondihoc/components/statistical.dart';
 import 'package:heocondihoc/models/color.dart';
@@ -16,13 +15,13 @@ class _ProfileScreenState extends State<ProfileScreen>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(length: 2, vsync: this);
+    TabController tabController = TabController(length: 2, vsync: this);
     return Scaffold(
         body: Container(
             decoration: background,
             child: Column(children: [
-              ItemBar(),
-              HeaderInfo(),
+              const ItemBar(),
+              const HeaderInfo(),
               divider,
               Container(
                 child: TabBar(
@@ -34,10 +33,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                               style: BorderStyle.solid)),
                       gradient: LinearGradient(
                           colors: [Color(0xff0081ff), Color(0xff01ff80)])),
-                  controller: _tabController,
+                  controller: tabController,
                   labelColor: Colors.black,
                   unselectedLabelColor: Colors.white,
-                  tabs: [
+                  tabs: const [
                     Tab(text: 'Thành Tích'),
                     Tab(text: 'Thống Kê'),
                   ],
@@ -46,11 +45,11 @@ class _ProfileScreenState extends State<ProfileScreen>
               Expanded(
                 child: ListView(
                   children: [
-                    Container(
+                    SizedBox(
                         width: double.maxFinite,
                         height: 500,
                         child: TabBarView(
-                          controller: _tabController,
+                          controller: tabController,
                           children: [
                             Achievements(),
                             Statistical(),

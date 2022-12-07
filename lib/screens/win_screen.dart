@@ -38,7 +38,7 @@ class _WinScreenState extends State<WinScreen> {
                 //     //ItemBar(),
                 //   ],
                 // ),
-                Gap(110),
+                const Gap(110),
                 Row(
                   children: [
                     Expanded(
@@ -46,7 +46,7 @@ class _WinScreenState extends State<WinScreen> {
                         child: CircleAvatar(
                           backgroundColor: Colors.white.withOpacity(0.5),
                           radius: 80,
-                          child: Icon(
+                          child: const Icon(
                             Icons.person_outline,
                             color: myColor,
                             size: 70,
@@ -56,9 +56,9 @@ class _WinScreenState extends State<WinScreen> {
                 )
               ],
             ),
-            Gap(20),
+            const Gap(20),
             Container(
-              child: Text(
+              child: const Text(
                 "Fukbois Si's Tinh's",
                 style: TextStyle(
                     fontSize: 30,
@@ -66,7 +66,7 @@ class _WinScreenState extends State<WinScreen> {
                     color: Colors.white),
               ),
             ),
-            Gap(30),
+            const Gap(30),
             Container(
               child: Image.network(
                 'https://cdn-icons-png.flaticon.com/512/3112/3112946.png',
@@ -74,7 +74,7 @@ class _WinScreenState extends State<WinScreen> {
                 height: 100,
               ),
             ),
-            Gap(20),
+            const Gap(20),
             Container(
                 child: Text(
               'Winner',
@@ -83,25 +83,25 @@ class _WinScreenState extends State<WinScreen> {
                   fontWeight: FontWeight.bold,
                   color: Colors.orange[300]),
             )),
-            Gap(30),
+            const Gap(30),
             Container(
-                padding: EdgeInsets.fromLTRB(90, 0, 90, 0),
-                child: Container(
+                padding: const EdgeInsets.fromLTRB(90, 0, 90, 0),
+                child: SizedBox(
                   height: 40,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      minimumSize: Size(80, 50),
+                      minimumSize: const Size(80, 50),
                     ),
                     onPressed: () {
                       Navigator.pop(context);
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MatchScreen()));
+                              builder: (context) => const MatchScreen()));
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text('Tiếp tục', style: TextStyle(fontSize: 22))
                       ],
                     ),
