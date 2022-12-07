@@ -148,7 +148,9 @@ class _QuestionCardState extends State<QuestionCard> {
               height: 50,
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _controller.nextQuestion();
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

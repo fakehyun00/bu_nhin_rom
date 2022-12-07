@@ -190,6 +190,8 @@ class _MenuScreenState extends State<MenuScreen> {
                                             MaterialStateProperty.resolveWith(
                                                 getColor3)),
                                     onPressed: () {
+                                      Navigator.pop(context);
+
                                       FirebaseAuth.instance.signOut();
                                     },
                                     child: const Text('Đồng ý')),

@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/item.dart';
 import 'package:gap/gap.dart';
-
-import 'package:heocondihoc/screens/history.dart';
+import 'package:heocondihoc/models/logo.dart';
 
 import 'package:heocondihoc/screens/match_screen.dart';
 import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/rank.dart';
-import 'package:heocondihoc/screens/viewprofile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,58 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Column(children: [
           const ItemBar(),
           const Gap(70),
-          Row(
-            children: [
-
-              Container(
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage('assets/button02.png'))),
-                  height: 60,
-                  width: 180,
-                  child: Center(
-                      child: SizedBox(
-                    width: 210,
-                    height: 100,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RankScreen()));
-                      },
-                      child: Text('Bảng Xếp Hạng',
-                          style: TextStyle(fontSize: 18, color: myColor)),
-                    ),
-                  ))),
-              Container(
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage('assets/button02.png'))),
-                  height: 60,
-                  width: 180,
-                  child: Center(
-                      child: SizedBox(
-                    height: 65,
-                    width: 195,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => PayScreen()));
-                      },
-                      child: Text('Nạp Tiền',
-                          style: TextStyle(fontSize: 18, color: myColor)),
-
-                    ),
-                  ))),
-            ],
-          ),
+          logo,
           const Gap(20),
           Container(
               padding: const EdgeInsets.fromLTRB(35, 0, 35, 10),
@@ -157,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const NapTienScreen()));
+                                  builder: (context) => const PayScreen()));
                         },
                         child: Column(
                           children: const [
