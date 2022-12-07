@@ -1,4 +1,3 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -31,7 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmpassController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-
+  String errorMessage = '';
   @override
   void dispose() {
     _emailController.dispose();
@@ -40,24 +39,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
     super.dispose();
   }
 
-  Future signUp() async {
-    final isValid = formKey.currentState!.validate();
-    if (!isValid) return;
-    if (passwordConfirm()) {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
-    }
-  }
+  // Future signUp() async {
+  //   final isValid = formKey.currentState!.validate();
+  //   if (!isValid) return;
+  //   if (passwordConfirm()) {
+  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //       email: _emailController.text.trim(),
+  //       password: _passwordController.text.trim(),
+  //     );
+  //   }
+  // }
 
-  bool passwordConfirm() {
-    if (_passwordController.text.trim() == _confirmpassController.text.trim()) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // bool passwordConfirm() {
+  //   if (_passwordController.text.trim() == _confirmpassController.text.trim()) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -88,38 +87,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: SizedBox(
-                                height: 50,
-                                child: TextFormField(
-                                    autovalidateMode:
-                                        AutovalidateMode.onUserInteraction,
-                                    validator: (email) => email != null &&
-                                            !EmailValidator.validate(email)
-                                        ? 'Enter a valid email'
-                                        : null,
-                                    controller: _emailController,
-                                    keyboardType: TextInputType.emailAddress,
-                                    style: const TextStyle(color: myColor),
-                                    decoration: InputDecoration(
-                                        fillColor: Colors.white,
-                                        enabledBorder: OutlineInputBorder(
+                              child: TextFormField(
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  validator: validateEmail,
+                                  controller: _emailController,
+                                  keyboardType: TextInputType.emailAddress,
+                                  style: const TextStyle(color: myColor),
+                                  decoration: InputDecoration(
+                                      fillColor: Colors.white,
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(50),
+                                        borderSide: const BorderSide(
+                                            width: 1, color: myColor),
+                                      ),
+                                      border: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(50),
-                                          borderSide: const BorderSide(
-                                              width: 1, color: myColor),
-                                        ),
-                                        border: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(50)),
-                                        prefixIcon: const Icon(
-                                          Icons.mail_outline,
-                                          color: myColor,
-                                        ),
-                                        hintText: 'Email',
-                                        hintStyle: const TextStyle(
-                                          color: myColor,
-                                        ))),
-                              )),
+                                              BorderRadius.circular(50)),
+                                      prefixIcon: const Icon(
+                                        Icons.mail_outline,
+                                        color: myColor,
+                                      ),
+                                      hintText: 'Email',
+                                      hintStyle: const TextStyle(
+                                        color: myColor,
+                                      )))),
 
                           Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -128,10 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 child: TextFormField(
                                     autovalidateMode:
                                         AutovalidateMode.onUserInteraction,
-                                    validator: ((value) =>
-                                        value != null && value.length < 6
-                                            ? 'Mật khẩu không được dưới 6 kí tự'
-                                            : null),
+                                    validator: validatePassword,
                                     controller: _passwordController,
                                     obscureText: isHidden,
                                     style: const TextStyle(color: myColor),
@@ -168,7 +157,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               padding: const EdgeInsets.all(8.0),
                               child: SizedBox(
                                 height: 50,
-                                child: TextField(
+                                child: TextFormField(
+                                    autovalidateMode:
+                                        AutovalidateMode.onUserInteraction,
+                                    validator: ((value) {
+                                      value != _passwordController
+                                          ? 'Mật khẩu không trùng khớp'
+                                          : null;
+                                      return null;
+                                    }),
                                     controller: _confirmpassController,
                                     obscureText: isHidden,
                                     style: const TextStyle(color: myColor),
@@ -182,8 +179,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           borderRadius:
                                               BorderRadius.circular(50)),
                                       prefixIcon: const Icon(
-                                        Icons.lock_outline,
-                                        color: myColor,
+                                        Icons.lock_outline, color: myColor,
+                                        //color: Colors.black,
                                       ),
                                       hintText: 'Nhập lại mật khẩu',
                                       hintStyle:
@@ -201,48 +198,41 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           )),
                                     )),
                               )),
-                          // Gap(20),
 
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Checkbox(
-                                    fillColor:
-                                        MaterialStateProperty.resolveWith(
-                                            getColor),
-                                    checkColor: Colors.blue,
-                                    value: isChecked,
-                                    onChanged: (bool? value) {
-                                      setState(() {
-                                        isChecked = value!;
-                                      });
-                                    }),
-                                const Text(
-                                  'Tôi đồng ý với các điều khoản',
-                                  style: TextStyle(color: myColor),
-                                ),
-                              ]),
+                          // Gap(20),
+                          Center(
+                            child: Text(
+                              errorMessage,
+                              style: const TextStyle(color: Colors.red),
+                            ),
+                          ),
                           Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: GestureDetector(
-                                onTap: signUp,
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 5, vertical: 15),
-                                  decoration: BoxDecoration(
-                                    color: Colors.blueAccent,
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  child: const Center(
-                                      child: Text(
-                                    'Đăng kí',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18),
-                                  )),
-                                ),
-                              )),
+                            padding: const EdgeInsets.all(10),
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                if (formKey.currentState!.validate()) {
+                                  try {
+                                    await FirebaseAuth.instance
+                                        .createUserWithEmailAndPassword(
+                                      email: _emailController.text,
+                                      password: _passwordController.text,
+                                    );
+                                    errorMessage = '';
+                                  } on FirebaseAuthException catch (error) {
+                                    errorMessage = error.message!;
+                                  }
+                                  setState(() {});
+                                }
+                              },
+                              child: const Text(
+                                'Đăng kí',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18),
+                              ),
+                            ),
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -271,4 +261,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
+}
+
+String? validateEmail(String? formEmail) {
+  if (formEmail == null || formEmail.isEmpty) {
+    return "Hãy nhập email!";
+  }
+  String pattern = r'\w+@\w+\.\w+';
+  RegExp regex = RegExp(pattern);
+  if (!regex.hasMatch(formEmail)) return 'Email không hợp lệ!';
+  return null;
+}
+
+String? validatePassword(String? formPassword) {
+  if (formPassword == null || formPassword.isEmpty) {
+    return "Hãy nhập mật khẩu!";
+  }
+  String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$';
+  RegExp regex = RegExp(pattern);
+  if (!regex.hasMatch(formPassword)) {
+    return '''
+      Mật khẩu tối thiểu 6 kí tự,
+      bao gồm chữ hoa, chữ thường và số.
+      ''';
+  }
+  return null;
 }

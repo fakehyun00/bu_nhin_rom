@@ -70,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: TextFormField(
                             controller: _emailController,
                             validator: validateEmail,
+                            keyboardType: TextInputType.emailAddress,
                             autofocus: false,
                             style: const TextStyle(color: myColor),
                             decoration: InputDecoration(
