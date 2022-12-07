@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:heocondihoc/models/color.dart';
-import 'package:heocondihoc/models/header_info.dart';
 import 'package:heocondihoc/models/item.dart';
 
 import 'package:gap/gap.dart';
 
-import 'package:heocondihoc/screens/buyplays.dart';
-import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/screens/match_screen.dart';
 import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/rank.dart';
@@ -24,108 +21,118 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         body: Container(
       decoration: background,
-      child: Column(children: [
-        ItemBar(),
-        Gap(70),
-        Row(
-          children: [
-            Expanded(
-                flex: 3,
-                child: CircleAvatar(
-                  backgroundColor: Colors.white.withOpacity(0.4),
-                  radius: 70,
-                  child: Icon(
-                    Icons.person_outline,
-                    color: myColor,
-                    size: 70,
-                  ),
-                )),
-          ],
-        ),
-        Gap(20),
-        Container(
-            padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-            child: Container(
-              height: 40,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.blueAccent[300]),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ))),
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MatchScreen()));
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Text('Chơi', style: TextStyle(fontSize: 22))],
-                ),
-              ),
-            )),
-        Gap(20),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 80, vertical: 80),
-          color: Colors.white,
-          child: Text('Quảng Cáo'),
-        ),
-        Gap(20),
-        Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: ListView(children: [
+        Column(children: [
+          const ItemBar(),
+          const Gap(70),
+          Row(
             children: [
-              Container(
-                  padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-                  child: Container(
-                    height: 90,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(110, 80),
-                          padding: EdgeInsets.only(top: 25),
-                          backgroundColor: Colors.amber),
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RankScreen()));
-                      },
-                      child: Column(
-                        children: [
-                          Icon(Icons.wine_bar),
-                          Gap(2),
-                          Text('Bảng xếp hạng')
-                        ],
-                      ),
-                    ),
-                  )),
-              Container(
-                  padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-                  child: Container(
-                    height: 90,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(110, 80),
-                          padding: EdgeInsets.only(top: 25),
-                          backgroundColor: Colors.amber),
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => NapTienScreen()));
-                      },
-                      child: Column(
-                        children: [Icon(Icons.badge), Gap(2), Text('Nạp tiền')],
-                      ),
+              Expanded(
+                  flex: 3,
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white.withOpacity(0.4),
+                    radius: 70,
+                    child: const Icon(
+                      Icons.person_outline,
+                      color: myColor,
+                      size: 70,
                     ),
                   )),
             ],
           ),
-        )
+          const Gap(20),
+          Container(
+              padding: const EdgeInsets.fromLTRB(35, 0, 35, 10),
+              child: SizedBox(
+                height: 40,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.blueAccent[300]),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ))),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MatchScreen()));
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('Chơi', style: TextStyle(fontSize: 22))
+                    ],
+                  ),
+                ),
+              )),
+          const Gap(20),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 80),
+            color: Colors.white,
+            child: const Text('Quảng Cáo'),
+          ),
+          const Gap(20),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    padding: const EdgeInsets.fromLTRB(35, 0, 35, 10),
+                    child: SizedBox(
+                      height: 90,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: const Size(110, 80),
+                            padding: const EdgeInsets.only(top: 25),
+                            backgroundColor: Colors.amber),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const RankScreen()));
+                        },
+                        child: Column(
+                          children: const [
+                            Icon(Icons.wine_bar),
+                            Gap(2),
+                            Text('Bảng xếp hạng')
+                          ],
+                        ),
+                      ),
+                    )),
+                Container(
+                    padding: const EdgeInsets.fromLTRB(35, 0, 35, 10),
+                    child: SizedBox(
+                      height: 90,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: const Size(110, 80),
+                            padding: const EdgeInsets.only(top: 25),
+                            backgroundColor: Colors.amber),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const NapTienScreen()));
+                        },
+                        child: Column(
+                          children: const [
+                            Icon(Icons.badge),
+                            Gap(2),
+                            Text('Nạp tiền')
+                          ],
+                        ),
+                      ),
+                    )),
+              ],
+            ),
+          )
+        ]),
       ]),
     ));
   }

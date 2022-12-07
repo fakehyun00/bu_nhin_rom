@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 const myColor = Colors.white;
 
 //background
-final background = BoxDecoration(
+const background = BoxDecoration(
     image: DecorationImage(
         fit: BoxFit.fill, image: AssetImage('assets/background_DA.png')));
 
@@ -27,9 +27,9 @@ Color getColor1(Set<MaterialState> states) {
     MaterialState.focused,
   };
   if (states.any(interactiveStates.contains)) {
-    return Color.fromARGB(255, 232, 180, 116);
+    return const Color.fromARGB(255, 232, 180, 116);
   }
-  return Color.fromARGB(255, 232, 180, 116);
+  return const Color.fromARGB(255, 232, 180, 116);
 }
 
 Color getColor2(Set<MaterialState> states) {
@@ -39,9 +39,9 @@ Color getColor2(Set<MaterialState> states) {
     MaterialState.focused,
   };
   if (states.any(interactiveStates.contains)) {
-    return Color.fromARGB(255, 232, 180, 116);
+    return const Color.fromARGB(255, 232, 180, 116);
   }
-  return Color.fromARGB(255, 255, 255, 255);
+  return const Color.fromARGB(255, 255, 255, 255);
 }
 
 Color getColor3(Set<MaterialState> states) {
@@ -51,9 +51,9 @@ Color getColor3(Set<MaterialState> states) {
     MaterialState.focused,
   };
   if (states.any(interactiveStates.contains)) {
-    return Color.fromARGB(255, 0, 179, 255);
+    return const Color.fromARGB(255, 0, 179, 255);
   }
-  return Color.fromARGB(255, 255, 17, 17);
+  return const Color.fromARGB(255, 255, 17, 17);
 }
 
 Color anserwrong(Set<MaterialState> states) {
@@ -65,7 +65,7 @@ Color anserwrong(Set<MaterialState> states) {
   if (states.any(interactiveStates.contains)) {
     return Colors.red;
   }
-  return Color.fromARGB(255, 255, 255, 255);
+  return const Color.fromARGB(255, 255, 255, 255);
 }
 
 Color ansercorret(Set<MaterialState> states) {
@@ -79,7 +79,7 @@ Color ansercorret(Set<MaterialState> states) {
   if (states.any(interactiveStates.contains)) {
     return Colors.green;
   }
-  return Color.fromARGB(255, 255, 255, 255);
+  return const Color.fromARGB(255, 255, 255, 255);
 }
 
 Color forgeanser(Set<MaterialState> states) {
@@ -97,8 +97,8 @@ Color forgeanser(Set<MaterialState> states) {
 }
 
 class Styles {
-  static TextStyle headLineStyle1 = TextStyle(
+  static TextStyle headLineStyle1 = const TextStyle(
       fontSize: 30, color: Color(0xFFF37B67), fontWeight: FontWeight.w500);
   static TextStyle headLineStyle2 =
-      TextStyle(fontSize: 17, fontWeight: FontWeight.w900);
+      const TextStyle(fontSize: 17, fontWeight: FontWeight.w900);
 }

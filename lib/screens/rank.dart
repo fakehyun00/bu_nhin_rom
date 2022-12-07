@@ -24,7 +24,7 @@ class _RankScreenState extends State<RankScreen> {
         decoration: background,
         child: Column(
           children: [
-            Gap(30),
+            const Gap(30),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,12 +36,14 @@ class _RankScreenState extends State<RankScreen> {
                     color: myColor,
                     onPressed: () {
                       Navigator.pop(context);
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => BottomBar()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BottomBar()));
                     },
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   flex: 9,
                   //padding: EdgeInsets.all(0),
                   child: Icon(
@@ -78,7 +80,7 @@ class _RankScreenState extends State<RankScreen> {
                     label: '',
                   ),
                 ]),
-            Gap(20),
+            const Gap(20),
             <Widget>[
               Container(
                 child: Column(
