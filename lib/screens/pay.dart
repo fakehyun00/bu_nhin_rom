@@ -5,14 +5,14 @@ import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/logo.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
 
-class NapTienScreen extends StatefulWidget {
-  const NapTienScreen({super.key});
+class PayScreen extends StatefulWidget {
+  const PayScreen({super.key});
 
   @override
-  State<NapTienScreen> createState() => _NapTienScreenState();
+  State<PayScreen> createState() => _PayScreenState();
 }
 
-class _NapTienScreenState extends State<NapTienScreen> {
+class _PayScreenState extends State<PayScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

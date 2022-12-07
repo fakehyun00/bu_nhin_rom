@@ -1,8 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
+import 'package:heocondihoc/components/Solo.dart';
 import 'package:heocondihoc/components/bottombar.dart';
+import 'package:heocondihoc/components/versus.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/header_info.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
@@ -15,10 +19,10 @@ class RankScreen extends StatefulWidget {
   State<RankScreen> createState() => _RankScreenState();
 }
 
-class _RankScreenState extends State<RankScreen> {
-  int currentPageIndex = 0;
+class _RankScreenState extends State<RankScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    TabController _rankTabController = TabController(length: 2, vsync: this);
     return Scaffold(
       body: Container(
         decoration: background,
@@ -55,212 +59,43 @@ class _RankScreenState extends State<RankScreen> {
               ],
             ),
             divider,
-            NavigationBar(
-                height: 30,
-                onDestinationSelected: (int index) {
-                  setState(() {
-                    currentPageIndex = index;
-                  });
-                },
-                selectedIndex: currentPageIndex,
-                destinations: const <Widget>[
-                  NavigationDestination(
-                    icon: Text(
-                      'Đấu Đơn',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    //selectedIcon: Text('Thành tích'),
-                    label: '',
-                  ),
-                  NavigationDestination(
-                    icon: Text(
-                      'Đối Kháng',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    label: '',
-                  ),
-                ]),
-            const Gap(20),
-            <Widget>[
-              Container(
-                child: Column(
-                  children: [
-                    Card(
-                        // color: background_color,
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                          const ListTile(
-                            leading: Text(
-                              '1',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('ĐNYN',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '2',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Fukboi\'s si\'s tình\'s',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '3',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Lộc fuho',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '4',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Hưng Apple',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '5',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Mơi Văn Dũng',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '6',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Everything is Widget',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '7',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Độc cô cầu qua môn',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                        ]))
-                  ],
-                ),
+
+            Container(
+              child: TabBar(
+                indicator: const ShapeDecoration(
+                    shape: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors.purple,
+                            width: 0,
+                            style: BorderStyle.solid)),
+                    gradient: LinearGradient(
+                        colors: [Color(0xff0081ff), Color(0xff01ff80)])),
+                controller: _rankTabController,
+                labelColor: Colors.black,
+                unselectedLabelColor: Colors.white,
+                tabs: [
+                  Tab(text: 'Đơn'),
+                  Tab(text: 'Đối Kháng'),
+                ],
+
               ),
-              Container(
-                child: Column(
-                  children: [
-                    Card(
-                        //color: background_color,
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                          const ListTile(
-                            leading: Text(
-                              '1',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Lộc fuho',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '2',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('ĐNYN',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '3',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Fukboi\'s si\'s tình\'s',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '4',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Everything is Widget',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '5',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Độc cô cầu qua môn',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '6',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Hưng Apple',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                          const ListTile(
-                            leading: Text(
-                              '7',
-                              style: TextStyle(color: myColor),
-                            ),
-                            title: Text('Mơi Văn Dũng',
-                                style: TextStyle(
-                                    color: myColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          divider,
-                        ]))
-                  ],
-                ),
-              )
-            ][currentPageIndex],
+            ),
+            Expanded(
+              child: ListView(
+                children: [
+                  Container(
+                      width: double.maxFinite,
+                      height: 500,
+                      child: TabBarView(
+                        controller: _rankTabController,
+                        children: [
+                          Solo(),
+                          Versus(),
+                        ],
+                      )),
+                ],
+              ),
+            ),
           ],
         ),
       ),

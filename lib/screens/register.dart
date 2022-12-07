@@ -223,11 +223,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                               ]),
                           Padding(
-                              padding: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(10),
                               child: GestureDetector(
                                 onTap: signUp,
                                 child: Container(
-                                  padding: const EdgeInsets.all(20),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 5, vertical: 15),
                                   decoration: BoxDecoration(
                                     color: Colors.blueAccent,
                                     borderRadius: BorderRadius.circular(12),
