@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/color.dart';
-import 'package:heocondihoc/models/header_info.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
 
 import '../models/item.dart';
@@ -20,13 +19,13 @@ class _HistoryState extends State<History> {
         body: Container(
             decoration: background,
             child: Column(children: [
-              ItemBar(),
+              const ItemBar(),
               Padding(
-                padding: EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 20),
                 child: Column(
                   children: [
-                    Gap(20),
-                    Text(
+                    const Gap(20),
+                    const Text(
                       'Lịch sử',
                       style: TextStyle(
                           fontSize: 48,
@@ -42,7 +41,7 @@ class _HistoryState extends State<History> {
                 children: [
                   Column(children: [
                     Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Colors.green,
                             border: Border.all(
@@ -61,9 +60,9 @@ class _HistoryState extends State<History> {
                             ),
                           ),
                         )),
-                    Gap(20),
+                    const Gap(20),
                     Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Colors.green,
                             border: Border.all(
@@ -82,9 +81,9 @@ class _HistoryState extends State<History> {
                             ),
                           ),
                         )),
-                    Gap(20),
+                    const Gap(20),
                     Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Colors.green,
                             border: Border.all(
@@ -103,9 +102,9 @@ class _HistoryState extends State<History> {
                             ),
                           ),
                         )),
-                    Gap(20),
+                    const Gap(20),
                     Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Colors.green,
                             border: Border.all(
@@ -124,9 +123,9 @@ class _HistoryState extends State<History> {
                             ),
                           ),
                         )),
-                    Gap(20),
+                    const Gap(20),
                     Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Colors.green,
                             border: Border.all(
@@ -145,9 +144,9 @@ class _HistoryState extends State<History> {
                             ),
                           ),
                         )),
-                    Gap(20),
+                    const Gap(20),
                     Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Colors.green,
                             border: Border.all(
@@ -166,7 +165,7 @@ class _HistoryState extends State<History> {
                             ),
                           ),
                         )),
-                    Gap(20),
+                    const Gap(20),
                   ])
                 ],
               )),

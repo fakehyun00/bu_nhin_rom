@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/item.dart';
 import 'package:heocondihoc/screens/pay_bill.dart';
@@ -15,18 +12,19 @@ class ShopScreen extends StatefulWidget {
 
 class _ShopScreenState extends State<ShopScreen> {
   @override
-  final color_buy = Color.fromARGB(120, 182, 171, 208);
-  final color_buyleft = Color.fromARGB(200, 243, 144, 215);
+  final color_buy = const Color.fromARGB(120, 182, 171, 208);
+  final color_buyleft = const Color.fromARGB(200, 243, 144, 215);
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: background,
         child: Column(children: [
-          ItemBar(),
-          Padding(padding: EdgeInsets.all(20)),
+          const ItemBar(),
+          const Padding(padding: EdgeInsets.all(20)),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               Text(
                 'CỬA HÀNG',
                 style: TextStyle(
@@ -34,25 +32,25 @@ class _ShopScreenState extends State<ShopScreen> {
               )
             ],
           ),
-          Padding(padding: EdgeInsets.all(10)),
+          const Padding(padding: EdgeInsets.all(10)),
           Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10), color: color_buy),
             height: 50,
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   width: MediaQuery.of(context).size.width / 2,
-                  child: Text(
+                  child: const Text(
                     'Mạng',
                     style: TextStyle(color: myColor, fontSize: 20),
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(left: 140)),
+                const Padding(padding: EdgeInsets.only(left: 140)),
                 Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.favorite_sharp,
                       color: Colors.red,
@@ -62,9 +60,9 @@ class _ShopScreenState extends State<ShopScreen> {
               ],
             ),
           ),
-          Padding(padding: EdgeInsets.all(10)),
+          const Padding(padding: EdgeInsets.all(10)),
           Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: color_buyleft),
             height: 60,
@@ -75,9 +73,9 @@ class _ShopScreenState extends State<ShopScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
-                      padding: EdgeInsets.only(left: 10),
-                      child: Text(
+                      margin: const EdgeInsets.fromLTRB(5, 5, 0, 0),
+                      padding: const EdgeInsets.only(left: 10),
+                      child: const Text(
                         '1 Mạng',
                         style: TextStyle(
                             color: Colors.black54, fontWeight: FontWeight.bold),
@@ -87,8 +85,8 @@ class _ShopScreenState extends State<ShopScreen> {
                       child: Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.fromLTRB(26, 10, 0, 0),
-                              padding: EdgeInsets.only(left: 100),
+                              margin: const EdgeInsets.fromLTRB(26, 10, 0, 0),
+                              padding: const EdgeInsets.only(left: 100),
                               child: Row(
                                 children: [
                                   ElevatedButton(
@@ -101,10 +99,10 @@ class _ShopScreenState extends State<ShopScreen> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    PayBillScreen()));
+                                                    const PayBillScreen()));
                                       },
                                       child: Row(
-                                        children: [
+                                        children: const [
                                           Icon(Icons.money_sharp),
                                           Padding(
                                               padding: EdgeInsets.fromLTRB(
@@ -123,7 +121,7 @@ class _ShopScreenState extends State<ShopScreen> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: color_buyleft),
             height: 60,
@@ -134,9 +132,9 @@ class _ShopScreenState extends State<ShopScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
-                      padding: EdgeInsets.only(left: 10),
-                      child: Text(
+                      margin: const EdgeInsets.fromLTRB(5, 5, 0, 0),
+                      padding: const EdgeInsets.only(left: 10),
+                      child: const Text(
                         '5 Mạng',
                         style: TextStyle(
                             color: Colors.black54, fontWeight: FontWeight.bold),
@@ -146,8 +144,8 @@ class _ShopScreenState extends State<ShopScreen> {
                       child: Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.fromLTRB(26, 10, 0, 0),
-                              padding: EdgeInsets.only(left: 100),
+                              margin: const EdgeInsets.fromLTRB(26, 10, 0, 0),
+                              padding: const EdgeInsets.only(left: 100),
                               child: Row(
                                 children: [
                                   ElevatedButton(
@@ -156,7 +154,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                               Colors.lightBlueAccent),
                                       onPressed: () {},
                                       child: Row(
-                                        children: [
+                                        children: const [
                                           Icon(Icons.money_sharp),
                                           Padding(
                                               padding: EdgeInsets.fromLTRB(
@@ -175,7 +173,7 @@ class _ShopScreenState extends State<ShopScreen> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: color_buyleft),
             height: 60,
@@ -186,9 +184,9 @@ class _ShopScreenState extends State<ShopScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
-                      padding: EdgeInsets.only(left: 10),
-                      child: Text(
+                      margin: const EdgeInsets.fromLTRB(5, 5, 0, 0),
+                      padding: const EdgeInsets.only(left: 10),
+                      child: const Text(
                         'Vô hạn Mạng\n 1h',
                         style: TextStyle(
                             color: Colors.black54, fontWeight: FontWeight.bold),
@@ -198,8 +196,8 @@ class _ShopScreenState extends State<ShopScreen> {
                       child: Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.fromLTRB(26, 10, 0, 0),
-                              padding: EdgeInsets.only(left: 63),
+                              margin: const EdgeInsets.fromLTRB(26, 10, 0, 0),
+                              padding: const EdgeInsets.only(left: 63),
                               child: Row(
                                 children: [
                                   ElevatedButton(
@@ -208,7 +206,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                               Colors.lightBlueAccent),
                                       onPressed: () {},
                                       child: Row(
-                                        children: [
+                                        children: const [
                                           Icon(Icons.money_sharp),
                                           Padding(
                                               padding: EdgeInsets.fromLTRB(
@@ -227,7 +225,7 @@ class _ShopScreenState extends State<ShopScreen> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: color_buyleft),
             height: 60,
@@ -238,9 +236,9 @@ class _ShopScreenState extends State<ShopScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
-                      padding: EdgeInsets.only(left: 10),
-                      child: Text(
+                      margin: const EdgeInsets.fromLTRB(5, 5, 0, 0),
+                      padding: const EdgeInsets.only(left: 10),
+                      child: const Text(
                         'Vô hạn mạng\n 3h',
                         style: TextStyle(
                             color: Colors.black54, fontWeight: FontWeight.bold),
@@ -250,8 +248,8 @@ class _ShopScreenState extends State<ShopScreen> {
                       child: Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.fromLTRB(26, 10, 0, 0),
-                              padding: EdgeInsets.only(left: 63),
+                              margin: const EdgeInsets.fromLTRB(26, 10, 0, 0),
+                              padding: const EdgeInsets.only(left: 63),
                               child: Row(
                                 children: [
                                   ElevatedButton(
@@ -260,7 +258,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                               Colors.lightBlueAccent),
                                       onPressed: () {},
                                       child: Row(
-                                        children: [
+                                        children: const [
                                           Icon(Icons.money_sharp),
                                           Padding(
                                               padding: EdgeInsets.fromLTRB(

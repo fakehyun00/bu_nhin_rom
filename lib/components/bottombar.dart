@@ -3,7 +3,6 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'package:heocondihoc/screens/history.dart';
 import 'package:heocondihoc/screens/menu.dart';
-import 'package:heocondihoc/screens/pay.dart';
 import 'package:heocondihoc/screens/profile.dart';
 import 'package:heocondihoc/screens/shop.dart';
 import 'package:line_icons/line_icons.dart';
@@ -19,14 +18,13 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 2;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
-  static List<Widget> _widgetOptions = <Widget>[
+
+  static final List<Widget> _widgetOptions = <Widget>[
     ProfileScreen(),
-    History(),
-    HomeScreen(),
-    ShopScreen(),
-    MenuScreen()
+    const History(),
+    const HomeScreen(),
+    const ShopScreen(),
+    const MenuScreen()
   ];
 
   @override
@@ -54,8 +52,8 @@ class _BottomBarState extends State<BottomBar> {
               gap: 8,
               activeColor: Colors.black,
               iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: Duration(milliseconds: 400),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
               tabBackgroundColor: Colors.grey[300]!,
               color: Colors.black,
               tabs: const [

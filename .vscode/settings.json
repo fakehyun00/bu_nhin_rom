@@ -1,4 +1,11 @@
 {
     "github.gitAuthentication": true,
-    "java.configuration.updateBuildConfiguration": "automatic"
+
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {"source.fixAll": true},
+    "dart.previewFlutterUiGuides": true,
+    "editor.formatOnType":true,
+
+    // "java.configuration.updateBuildConfiguration": "automatic"
+
 }

@@ -1,12 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
-import 'package:heocondihoc/screens/profile.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -61,21 +57,21 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             Icons.person,
                             size: 100,
                           )),
-                      Gap(10),
+                      const Gap(10),
                       const Text(
                         'Fukbois Si Tình',
                         style: TextStyle(color: Colors.white, fontSize: 30),
                       ),
                       divider,
                       Container(
-                        padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                        padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text('Tên người dùng:',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18)),
-                            Gap(10),
+                            const Gap(10),
                             SizedBox(
                               height: 40,
                               child: TextField(
@@ -89,18 +85,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     filled: true),
                               ),
                             ),
-                            Gap(20),
+                            const Gap(20),
                             const Text('Email:',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18)),
-                            Gap(10),
+                            const Gap(10),
                             SizedBox(
                               height: 40,
                               child: TextField(
                                 decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             width: 1, color: myColor)),
                                     fillColor: Colors.white,
                                     filled: true),
@@ -146,11 +142,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         color: Colors.white, fontSize: 18)),
                               ],
                             ),
-                            Gap(20),
+                            const Gap(20),
                             const Text('Tiểu sử:',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18)),
-                            Gap(10),
+                            const Gap(10),
                             TextField(
                               maxLines: 5,
                               decoration: InputDecoration(
@@ -161,7 +157,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   fillColor: Colors.white,
                                   filled: true),
                             ),
-                            Gap(20),
+                            const Gap(20),
                             Container(
                               alignment: Alignment.center,
                               child: ElevatedButton(
@@ -170,7 +166,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => BottomBar()));
+                                            builder: (context) =>
+                                                const BottomBar()));
                                   },
                                   child: const Text('Cập nhật',
                                       style: TextStyle(

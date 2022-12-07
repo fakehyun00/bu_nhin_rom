@@ -27,25 +27,27 @@ class _MatchScreenState extends State<MatchScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 0),
+              padding: const EdgeInsets.only(top: 0),
               child: BackButton(
                 onPressed: () {
                   Navigator.pop(context);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => BottomBar()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BottomBar()));
                 },
                 color: Colors.white,
               ),
             ),
-            ItemBar(),
+            const ItemBar(),
           ],
         ),
 
-        Gap(10),
+        const Gap(10),
         Container(
           child: logo,
         ),
-        Gap(20),
+        const Gap(20),
         // Container(
         //     padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
         //   child:
@@ -63,14 +65,16 @@ class _MatchScreenState extends State<MatchScreen> {
               child: TextButton(
                 onPressed: () {
                   Navigator.pop(context);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LevelScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LevelScreen()));
                 },
-                child: Text('Đấu Đơn',
+                child: const Text('Đấu Đơn',
                     style: TextStyle(fontSize: 25, color: myColor)),
               ),
             ))),
-        Gap(20),
+        const Gap(20),
         Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -85,10 +89,12 @@ class _MatchScreenState extends State<MatchScreen> {
               child: TextButton(
                 onPressed: () {
                   Navigator.pop(context);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SingleMatch()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SingleMatch()));
                 },
-                child: Text('Đối Kháng',
+                child: const Text('Đối Kháng',
                     style: TextStyle(fontSize: 25, color: myColor)),
               ),
             )))

@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/logo.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
@@ -148,7 +147,7 @@ class _PayBillScreenState extends State<PayBillScreen> {
           ),
           Container(
               padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-              child: Container(
+              child: SizedBox(
                 height: 40,
                 child: ElevatedButton(
                   style: ButtonStyle(

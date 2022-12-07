@@ -1,13 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/logo.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
-import 'package:heocondihoc/screens/home.dart';
 
 class PayScreen extends StatefulWidget {
   const PayScreen({super.key});
@@ -32,15 +28,17 @@ class _PayScreenState extends State<PayScreen> {
                   BackButton(
                     onPressed: () {
                       Navigator.pop(context);
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => BottomBar()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BottomBar()));
                     },
                     color: myColor,
                   )
                 ],
               ),
               logo,
-              Gap(10),
+              const Gap(10),
               const Text(
                 'Nạp xu',
                 style: TextStyle(
@@ -50,12 +48,12 @@ class _PayScreenState extends State<PayScreen> {
                 thickness: 1,
                 color: Colors.white.withOpacity(0.8),
               ),
-              Gap(20),
+              const Gap(20),
               Padding(
                   padding: padding_item_shop,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(100, 50),
+                        minimumSize: const Size(100, 50),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5)),
                       ),
@@ -64,18 +62,18 @@ class _PayScreenState extends State<PayScreen> {
                         Expanded(
                             flex: 8,
                             child: Row(
-                              children: [
+                              children: const [
                                 Text('Gói 20 xu '),
                                 Icon(Icons.money),
                               ],
                             )),
-                        Expanded(flex: 2, child: Text('19.000đ'))
+                        const Expanded(flex: 2, child: Text('19.000đ'))
                       ]))),
               Padding(
                   padding: padding_item_shop,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(100, 50),
+                        minimumSize: const Size(100, 50),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5)),
                       ),
@@ -84,18 +82,18 @@ class _PayScreenState extends State<PayScreen> {
                         Expanded(
                             flex: 8,
                             child: Row(
-                              children: [
+                              children: const [
                                 Text('Gói 55 xu '),
                                 Icon(Icons.money),
                               ],
                             )),
-                        Expanded(flex: 2, child: Text('49.000đ'))
+                        const Expanded(flex: 2, child: Text('49.000đ'))
                       ]))),
               Padding(
                   padding: padding_item_shop,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(100, 50),
+                        minimumSize: const Size(100, 50),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5)),
                       ),
@@ -104,18 +102,18 @@ class _PayScreenState extends State<PayScreen> {
                         Expanded(
                             flex: 8,
                             child: Row(
-                              children: [
+                              children: const [
                                 Text('Gói 20 xu '),
                                 Icon(Icons.money),
                               ],
                             )),
-                        Expanded(flex: 2, child: Text('19.000đ'))
+                        const Expanded(flex: 2, child: Text('19.000đ'))
                       ]))),
               Padding(
                   padding: padding_item_shop,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(100, 50),
+                        minimumSize: const Size(100, 50),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5)),
                       ),
@@ -124,7 +122,7 @@ class _PayScreenState extends State<PayScreen> {
                         Expanded(
                             flex: 8,
                             child: Row(
-                              children: [
+                              children: const [
                                 Text('Gói 230 xu '),
                                 Icon(Icons.money),
                                 Text('+ 5 '),
@@ -134,7 +132,7 @@ class _PayScreenState extends State<PayScreen> {
                                 )
                               ],
                             )),
-                        Expanded(flex: 2, child: Text('19.000đ'))
+                        const Expanded(flex: 2, child: Text('19.000đ'))
                       ])))
             ],
           )),

@@ -15,11 +15,14 @@ class SingleMatch extends StatefulWidget {
 class _SingleMatchState extends State<SingleMatch> {
   @override
   Widget build(BuildContext context) {
+
     QuestionController _questionController = Get.put(QuestionController());
+
     return Scaffold(
         body: Container(
       padding: EdgeInsets.only(top: 20, left: 10, right: 10),
       decoration: background,
+
       child: Column(
         children: [
           Row(
@@ -63,6 +66,7 @@ class _SingleMatchState extends State<SingleMatch> {
           ),
         ],
       ),
+
     ));
   }
 }
