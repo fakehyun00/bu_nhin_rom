@@ -70,15 +70,15 @@ class RegisterScreenState extends State<RegisterScreen> {
         child: ListView(
           children: [
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
                   Container(
-                      padding: EdgeInsets.only(left: 20, right: 20),
+                      padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Column(children: [
-                        Gap(20),
+                        const Gap(20),
                         logo,
-                        Gap(10),
+                        const Gap(10),
                         const Text(
                           'Đăng ký',
                           style: TextStyle(
@@ -185,7 +185,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                                     suffix: InkWell(
                                         onTap: changeHidenPass,
                                         child: Transform.translate(
-                                          offset: Offset(0.0, 8.0),
+                                          offset: const Offset(0.0, 8.0),
                                           child: Icon(
                                             isHiden
                                                 ? Icons.visibility
@@ -224,7 +224,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                                     suffix: InkWell(
                                         onTap: changeHidenPass,
                                         child: Transform.translate(
-                                          offset: Offset(0.0, 8.0),
+                                          offset: const Offset(0.0, 8.0),
                                           child: Icon(
                                             isHiden
                                                 ? Icons.visibility
@@ -264,36 +264,32 @@ class RegisterScreenState extends State<RegisterScreen> {
                                 } else {
                                   _validateUsername = false;
                                 }
-                                ;
                                 if (_emailController.text.isEmpty) {
                                   _validateEmail = true;
                                 } else {
                                   _validateEmail = false;
                                 }
-                                ;
                                 if (_passwordController.text.isEmpty) {
                                   _validatePassword = true;
                                 } else {
                                   _validatePassword = false;
                                 }
-                                ;
                                 if (_confirmPasswordController.text.isEmpty) {
                                   _validateConfirmPassword = true;
                                 } else {
                                   _validateConfirmPassword = false;
                                 }
-                                ;
                               });
                             },
-                            child: Text(
-                              'Đăng Ký Ngay',
-                            ),
                             style: ElevatedButton.styleFrom(
                                 //minimumSize: Size(350, 50),
                                 // maximumSize: Size(150, 50),
                                 backgroundColor: Colors.blue.withOpacity(0.8),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20))),
+                            child: const Text(
+                              'Đăng Ký Ngay',
+                            ),
                           ),
                         ),
 
@@ -338,7 +334,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            const Text(
                               'Bạn đã có tài khoản?',
                               style: TextStyle(color: myColor),
                             ),
@@ -348,9 +344,10 @@ class RegisterScreenState extends State<RegisterScreen> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => LoginScreen()));
+                                          builder: (context) =>
+                                              const LoginScreen()));
                                 },
-                                child: Text(
+                                child: const Text(
                                   'Đăng nhập',
                                   style: TextStyle(
                                       color:
