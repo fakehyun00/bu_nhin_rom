@@ -16,7 +16,7 @@ class _HeaderInfoState extends State<HeaderInfo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.only(top: 20),
       child: Column(
         children: [
           Row(
@@ -26,7 +26,7 @@ class _HeaderInfoState extends State<HeaderInfo> {
                   child: CircleAvatar(
                     backgroundColor: Colors.white.withOpacity(0.5),
                     radius: 40,
-                    child: Icon(
+                    child: const Icon(
                       Icons.person_outline,
                       color: myColor,
                       size: 70,
@@ -46,13 +46,13 @@ class _HeaderInfoState extends State<HeaderInfo> {
               Expanded(
                   flex: 1,
                   child: IconButton(
-                    icon: Icon(Icons.pending_actions_outlined),
+                    icon: const Icon(Icons.pending_actions_outlined),
                     onPressed: () {
                       Navigator.pop(context);
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => EditProfileScreen()));
+                              builder: (context) => const EditProfileScreen()));
                     },
                     color: Colors.green,
                   ))
@@ -69,7 +69,7 @@ class _HeaderInfoState extends State<HeaderInfo> {
               Column(
                 children: [
                   Row(
-                    children: [
+                    children: const [
                       Text('100/200', style: TextStyle(color: myColor)),
                       Icon(
                         Icons.star,
@@ -78,7 +78,7 @@ class _HeaderInfoState extends State<HeaderInfo> {
                     ],
                   ),
                   Row(
-                    children: [
+                    children: const [
                       Text(
                         '================',
                         style: TextStyle(color: myColor),

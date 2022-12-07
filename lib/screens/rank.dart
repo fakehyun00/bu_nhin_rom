@@ -28,7 +28,7 @@ class _RankScreenState extends State<RankScreen> with TickerProviderStateMixin {
         decoration: background,
         child: Column(
           children: [
-            Gap(30),
+            const Gap(30),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -40,12 +40,14 @@ class _RankScreenState extends State<RankScreen> with TickerProviderStateMixin {
                     color: myColor,
                     onPressed: () {
                       Navigator.pop(context);
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => BottomBar()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BottomBar()));
                     },
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   flex: 9,
                   //padding: EdgeInsets.all(0),
                   child: Icon(
@@ -57,6 +59,7 @@ class _RankScreenState extends State<RankScreen> with TickerProviderStateMixin {
               ],
             ),
             divider,
+
             Container(
               child: TabBar(
                 indicator: const ShapeDecoration(
@@ -74,6 +77,7 @@ class _RankScreenState extends State<RankScreen> with TickerProviderStateMixin {
                   Tab(text: 'Đơn'),
                   Tab(text: 'Đối Kháng'),
                 ],
+
               ),
             ),
             Expanded(
