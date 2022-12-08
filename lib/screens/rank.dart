@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
-import 'package:heocondihoc/components/Solo.dart';
+import 'package:heocondihoc/components/rankSolo.dart';
 import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/components/versus.dart';
 import 'package:heocondihoc/models/color.dart';
