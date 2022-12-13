@@ -1,13 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/logo.dart';
-import 'package:heocondihoc/screens/auth/main_page.dart';
 import 'package:heocondihoc/models/color.dart';
+import 'package:heocondihoc/models/users_model.dart';
+import 'package:heocondihoc/screens/login.dart';
 
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({required void Function() showLoginPage});
-
   @override
   State<StatefulWidget> createState() {
     return RegisterScreenState();
@@ -17,14 +18,15 @@ class RegisterScreen extends StatefulWidget {
 class RegisterScreenState extends State<RegisterScreen> {
   bool isHiden = true;
 
+  final _auth = FirebaseAuth.instance;
+
   final bool _validateConfirmPassword = false;
   final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
   bool isChecked = false;
-  final formKey = GlobalKey<FormState>();
-  String errorMessage = '';
+  final _formKey = GlobalKey<FormState>();
   changeHidenPass() {
     if (mounted) {
       setState(() {
@@ -57,7 +59,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                   Container(
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Form(
-                          key: formKey,
+                          key: _formKey,
                           child: Column(children: [
                             const Gap(20),
                             logo,
@@ -76,7 +78,59 @@ class RegisterScreenState extends State<RegisterScreen> {
                                   child: TextFormField(
                                       autovalidateMode:
                                           AutovalidateMode.onUserInteraction,
-                                      validator: validateEmail,
+                                      validator: (value) {
+                                        RegExp regex = RegExp(r'^.{3,}$');
+                                        if (value!.isEmpty) {
+                                          return "Hãy nhập tên của bạn";
+                                        }
+                                        if (!regex.hasMatch(value)) {
+                                          return ("Tên bạn phải ít nhất 3 kí tự");
+                                        }
+
+                                        return null;
+                                      },
+                                      controller: _usernameController,
+                                      keyboardType: TextInputType.emailAddress,
+                                      style: const TextStyle(color: myColor),
+                                      decoration: InputDecoration(
+                                          fillColor: Colors.white,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(50),
+                                            borderSide: const BorderSide(
+                                                width: 1, color: myColor),
+                                          ),
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(50)),
+                                          prefixIcon: const Icon(
+                                            Icons.mail_outline,
+                                            color: myColor,
+                                          ),
+                                          hintText: 'Username',
+                                          hintStyle: const TextStyle(
+                                            color: myColor,
+                                          ))),
+                                )),
+                            Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SizedBox(
+                                  height: 50,
+                                  child: TextFormField(
+                                      autovalidateMode:
+                                          AutovalidateMode.onUserInteraction,
+                                      validator: (value) {
+                                        if (value!.isEmpty) {
+                                          return "Hãy nhập email của bạn";
+                                        }
+                                        if (!RegExp(
+                                                "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                            .hasMatch(value)) {
+                                          return "Hãy nhập đúng email";
+                                        }
+
+                                        return null;
+                                      },
                                       controller: _emailController,
                                       keyboardType: TextInputType.emailAddress,
                                       style: const TextStyle(color: myColor),
@@ -107,7 +161,16 @@ class RegisterScreenState extends State<RegisterScreen> {
                                   child: TextFormField(
                                       autovalidateMode:
                                           AutovalidateMode.onUserInteraction,
-                                      validator: validatePassword,
+                                      validator: (value) {
+                                        RegExp regex = RegExp(r'^.{6,}$');
+                                        if (value!.isEmpty) {
+                                          return "Hãy nhập mật khẩu của bạn";
+                                        }
+                                        if (!regex.hasMatch(value)) {
+                                          return ("Mật khẩu phải ít nhất 6 kí tự");
+                                        }
+                                        return null;
+                                      },
                                       controller: _passwordController,
                                       obscureText: isHiden,
                                       style: const TextStyle(color: myColor),
@@ -148,10 +211,13 @@ class RegisterScreenState extends State<RegisterScreen> {
                                   child: TextFormField(
                                       autovalidateMode:
                                           AutovalidateMode.onUserInteraction,
-                                      validator: ((value) =>
-                                          value != _passwordController.text
-                                              ? 'Mật khẩu không trùng khớp'
-                                              : null),
+                                      validator: (value) {
+                                        if (_confirmPasswordController.text !=
+                                            _passwordController.text) {
+                                          return "Mật khẩu không trùng khớp";
+                                        }
+                                        return null;
+                                      },
                                       controller: _confirmPasswordController,
                                       obscureText: isHiden,
                                       style: const TextStyle(color: myColor),
@@ -185,29 +251,12 @@ class RegisterScreenState extends State<RegisterScreen> {
                                             )),
                                       )),
                                 )),
-                            Center(
-                              child: Text(
-                                errorMessage,
-                                style: const TextStyle(color: Colors.red),
-                              ),
-                            ),
                             Padding(
                               padding: const EdgeInsets.all(8),
                               child: ElevatedButton(
-                                onPressed: () async {
-                                  if (formKey.currentState!.validate()) {
-                                    try {
-                                      await FirebaseAuth.instance
-                                          .createUserWithEmailAndPassword(
-                                        email: _emailController.text,
-                                        password: _passwordController.text,
-                                      );
-                                      errorMessage = '';
-                                    } on FirebaseAuthException catch (error) {
-                                      errorMessage = error.message!;
-                                    }
-                                    setState(() {});
-                                  }
+                                onPressed: () {
+                                  signUp(_emailController.text,
+                                      _passwordController.text);
                                 },
                                 style: ElevatedButton.styleFrom(
                                     //minimumSize: Size(350, 50),
@@ -236,7 +285,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const MainPage()));
+                                                  LoginScreen()));
                                     },
                                     child: const Text(
                                       'Đăng nhập',
@@ -255,29 +304,37 @@ class RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
-}
 
-String? validateEmail(String? formEmail) {
-  if (formEmail == null || formEmail.isEmpty) {
-    return "Hãy nhập email!";
+  void signUp(String email, String password) async {
+    if (_formKey.currentState!.validate()) {
+      await _auth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((value) => {postDetailsToFirestore()})
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
   }
-  String pattern = r'\w+@\w+\.\w+';
-  RegExp regex = RegExp(pattern);
-  if (!regex.hasMatch(formEmail)) return 'Email không hợp lệ!';
-  return null;
-}
 
-String? validatePassword(String? formPassword) {
-  if (formPassword == null || formPassword.isEmpty) {
-    return "Hãy nhập mật khẩu!";
+  postDetailsToFirestore() async {
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User? user = _auth.currentUser;
+
+    UserModel userModel = UserModel();
+
+    userModel.email = user!.email;
+    userModel.uid = user.uid;
+    userModel.username = _usernameController.text;
+    userModel.password = _passwordController.text;
+
+    await firebaseFirestore
+        .collection("users")
+        .doc(user.uid)
+        .set(userModel.toMap());
+    Fluttertoast.showToast(msg: "Tạo tài khoản thành công");
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+        (route) => false);
   }
-  String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$';
-  RegExp regex = RegExp(pattern);
-  if (!regex.hasMatch(formPassword)) {
-    return '''
-      Mật khẩu tối thiểu 6 kí tự,
-      bao gồm chữ hoa, chữ thường và số.
-      ''';
-  }
-  return null;
 }

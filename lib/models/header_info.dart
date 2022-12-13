@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/models/color.dart';
-import 'package:heocondihoc/models/item.dart';
+import 'package:heocondihoc/models/users_model.dart';
 import 'package:heocondihoc/screens/editprofilescreen.dart';
 
 class HeaderInfo extends StatefulWidget {
@@ -13,6 +15,23 @@ class HeaderInfo extends StatefulWidget {
 }
 
 class _HeaderInfoState extends State<HeaderInfo> {
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,11 +55,11 @@ class _HeaderInfoState extends State<HeaderInfo> {
                   flex: 6,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text('Thiên Hưng',
-                          style: TextStyle(color: myColor, fontSize: 22)),
-                      Gap(10),
-                      Text('Level: 2', style: TextStyle(color: myColor))
+                    children: [
+                      Text('${loggedInUser.username}',
+                          style: const TextStyle(color: myColor, fontSize: 22)),
+                      const Gap(10),
+                      const Text('Level: 2', style: TextStyle(color: myColor))
                     ],
                   )),
               Expanded(
