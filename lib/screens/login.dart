@@ -1,15 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter/material.dart';
+import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 
 import 'package:heocondihoc/models/logo.dart';
+import 'package:heocondihoc/screens/register.dart';
 
 class LoginScreen extends StatefulWidget {
-  final VoidCallback showRegisterPage;
-  const LoginScreen({Key? key, required this.showRegisterPage})
-      : super(key: key);
-
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -17,8 +16,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final GlobalKey<FormState> _keyform = GlobalKey<FormState>();
-  String errMessage = '';
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final _auth = FirebaseAuth.instance;
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Form(
-        key: _keyform,
+        key: _formkey,
         child: Container(
           decoration: background,
           height: MediaQuery.of(context).size.height,
@@ -69,7 +69,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 50,
                           child: TextFormField(
                             controller: _emailController,
-                            validator: validateEmail,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Hãy nhập email của bạn";
+                              }
+                              if (!RegExp(
+                                      "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                  .hasMatch(value)) {
+                                return "Hãy nhập đúng email";
+                              }
+
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _emailController.text = value!;
+                            },
                             keyboardType: TextInputType.emailAddress,
                             autofocus: false,
                             style: const TextStyle(color: myColor),
@@ -99,7 +113,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: SizedBox(
                           height: 50,
                           child: TextFormField(
-                              validator: validatePassword,
+                              validator: (value) {
+                                RegExp regex = RegExp(r'^.{6,}$');
+                                if (value!.isEmpty) {
+                                  return "Hãy nhập mật khẩu của bạn";
+                                }
+                                if (!regex.hasMatch(value)) {
+                                  return ("Mật khẩu phải ít nhất 6 kí tự");
+                                }
+                                return null;
+                              },
                               controller: _passwordController,
                               obscureText: isHidden,
                               style: const TextStyle(color: myColor),
@@ -134,22 +157,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     Padding(
                         padding: const EdgeInsets.all(10),
                         child: ElevatedButton(
-                          onPressed: user != null
-                              ? null
-                              : () async {
-                                  if (_keyform.currentState!.validate()) {
-                                    try {
-                                      await FirebaseAuth.instance
-                                          .signInWithEmailAndPassword(
-                                        email: _emailController.text,
-                                        password: _passwordController.text,
-                                      );
-                                      errMessage = '';
-                                    } on FirebaseAuthException catch (error) {
-                                      errMessage = error.message!;
-                                    }
-                                  }
-                                },
+                          onPressed: () {
+                            signIn(_emailController.text,
+                                _passwordController.text);
+                          },
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue.withOpacity(0.8),
                               shape: RoundedRectangleBorder(
@@ -222,7 +233,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(color: myColor),
                         ),
                         GestureDetector(
-                          onTap: widget.showRegisterPage,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => RegisterScreen(),
+                                ));
+                          },
                           child: const Text(
                             'Đăng kí',
                             style: TextStyle(
@@ -239,19 +256,20 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-}
 
-String? validateEmail(String? formEmail) {
-  if (formEmail == null || formEmail.isEmpty) {
-    return "Hãy nhập email";
+  //login
+  void signIn(String email, String password) async {
+    if (_formkey.currentState!.validate()) {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((uid) => {
+                Fluttertoast.showToast(msg: "Đăng nhập thành công"),
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const BottomBar()))
+              })
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
   }
-
-  return null;
-}
-
-String? validatePassword(String? formPassword) {
-  if (formPassword == null || formPassword.isEmpty) {
-    return "Hãy nhập mật khẩu";
-  }
-  return null;
 }

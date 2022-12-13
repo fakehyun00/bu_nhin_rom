@@ -4,6 +4,7 @@ import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/header_info.dart';
 import 'package:heocondihoc/models/item.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
+import 'package:heocondihoc/screens/login.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -191,8 +192,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                                 getColor3)),
                                     onPressed: () {
                                       Navigator.pop(context);
-
-                                      FirebaseAuth.instance.signOut();
+                                      logout(context);
                                     },
                                     child: const Text('Đồng ý')),
                                 ElevatedButton(
@@ -244,5 +244,11 @@ class _MenuScreenState extends State<MenuScreen> {
         // )
       ]),
     ));
+  }
+
+  Future<void> logout(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 }
