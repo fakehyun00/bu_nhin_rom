@@ -326,6 +326,7 @@ class RegisterScreenState extends State<RegisterScreen> {
     userModel.uid = user.uid;
     userModel.username = _usernameController.text;
     userModel.password = _passwordController.text;
+    userModel.description = null;
 
     await firebaseFirestore
         .collection("users")

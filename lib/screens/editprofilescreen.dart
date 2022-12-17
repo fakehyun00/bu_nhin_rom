@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 import 'package:heocondihoc/models/padding_shop.dart';
+import 'package:heocondihoc/models/users_model.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -15,6 +18,22 @@ enum Sex { Male, Female }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   Sex? _sex = Sex.Male;
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel profileUser = UserModel();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      profileUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,9 +77,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             size: 100,
                           )),
                       const Gap(10),
-                      const Text(
-                        'Fukbois Si Tình',
-                        style: TextStyle(color: Colors.white, fontSize: 30),
+                      Text(
+                        '${profileUser.username}',
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 30),
                       ),
                       divider,
                       Container(
@@ -77,6 +97,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               child: TextField(
                                 cursorHeight: 20,
                                 decoration: InputDecoration(
+                                    //prefixText: '${loggedInUser.username}',
                                     border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
                                         borderSide: const BorderSide(
@@ -89,7 +110,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             const Text('Email:',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18)),
-                            const Gap(10),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             SizedBox(
                               height: 40,
                               child: TextField(

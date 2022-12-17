@@ -2,10 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:heocondihoc/components/bottombar.dart';
 import 'package:heocondihoc/models/color.dart';
 
 import 'package:heocondihoc/models/logo.dart';
+import 'package:heocondihoc/screens/forgot_password.dart';
 import 'package:heocondihoc/screens/register.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -191,7 +193,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         Expanded(
                           flex: 3,
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: ((context) =>
+                                            const ForgotPassword())));
+                              },
                               child: const Text(
                                 'Quên mật khẩu',
                                 style: TextStyle(color: myColor),

@@ -1,11 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:heocondihoc/models/questions_list.dart';
 import 'package:get/get.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/state_manager.dart';
 import 'package:heocondihoc/screens/scorescreen.dart';
 
 class QuestionController extends GetxController
@@ -14,10 +11,10 @@ class QuestionController extends GetxController
         SingleGetTickerProviderMixin {
   late AnimationController _animationController;
   late Animation _animation;
-  Animation get animation => this._animation;
+  Animation get animation => _animation;
 
   late PageController _pageController;
-  PageController get pageController => this._pageController;
+  PageController get pageController => _pageController;
 
   final List<Question> _questions = question
       .map(
@@ -29,7 +26,7 @@ class QuestionController extends GetxController
             answer_correct: question['answer_correct']),
       )
       .toList();
-  List<Question> get questions => this._questions;
+  List<Question> get questions => _questions;
   bool _isAnswered = false;
   bool get isAnswered => _isAnswered;
 
@@ -42,12 +39,12 @@ class QuestionController extends GetxController
   final RxInt _questionNumber = 1.obs;
   RxInt get questionNumber => _questionNumber;
 
-  int _numOfCorrectAns = 0;
+  static int _numOfCorrectAns = 0;
   int get numOfCorrectAns => _numOfCorrectAns;
   @override
   void onInit() {
     _animationController =
-        AnimationController(duration: Duration(seconds: 15), vsync: this);
+        AnimationController(duration: const Duration(seconds: 15), vsync: this);
     _animation = Tween(begin: 0.0, end: 1.0).animate(_animationController)
       ..addListener(() {
         update();
@@ -76,7 +73,7 @@ class QuestionController extends GetxController
     update();
 
     // Dừng 3s trước khi chuyển câu
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(milliseconds: 600), () {
       nextQuestion();
     });
   }
@@ -86,7 +83,7 @@ class QuestionController extends GetxController
       _isAnswered = false;
 
       _pageController.nextPage(
-          duration: Duration(milliseconds: 250), curve: Curves.ease);
+          duration: const Duration(milliseconds: 250), curve: Curves.ease);
 
       // Khởi tạo lại bộ đếm thời gian
       _animationController.reset();
