@@ -9,7 +9,7 @@ import 'package:heocondihoc/screens/match_screen.dart';
 class ScoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    QuestionController _qnController = Get.put(QuestionController());
+    QuestionController qnController = Get.put(QuestionController());
     return Scaffold(
       body: Container(
         decoration: background,
@@ -20,7 +20,7 @@ class ScoreScreen extends StatelessWidget {
               children: [
                 const Spacer(flex: 3),
                 Text(
-                  'Bạn trả lời đúng ${_qnController.correctAns} câu hỏi!',
+                  'Bạn trả lời đúng ${qnController.numOfCorrectAns} câu hỏi!',
                   style: const TextStyle(
                     fontSize: 18,
                   ),
@@ -32,7 +32,7 @@ class ScoreScreen extends StatelessWidget {
                     )),
                 const Spacer(),
                 Text(
-                    "${_qnController.correctAns * 10}/${_qnController.questions.length * 10}",
+                    "${qnController.numOfCorrectAns * 10}/${qnController.questions.length * 10}",
                     style: const TextStyle(
                       fontSize: 18,
                     )),
@@ -42,29 +42,31 @@ class ScoreScreen extends StatelessWidget {
                   children: [
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            onPrimary: Colors.white, primary: Colors.red[300]),
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.red[300]),
                         onPressed: () {
                           Navigator.pop(context);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => BottomBar()));
+                                  builder: (context) => const BottomBar()));
                         },
-                        child: Text('Trở về')),
+                        child: const Text('Trở về')),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            onPrimary: Colors.white, primary: Colors.green),
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.green),
                         onPressed: () {
                           Navigator.pop(context);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LevelScreen()));
+                                  builder: (context) => const LevelScreen()));
                         },
-                        child: Text('Tiếp tục'))
+                        child: const Text('Tiếp tục'))
                   ],
                 ),
-                Spacer()
+                const Spacer()
               ],
             )
           ],
