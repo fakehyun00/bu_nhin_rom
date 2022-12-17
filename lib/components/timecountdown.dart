@@ -5,7 +5,7 @@ import 'package:heocondihoc/models/question_controller.dart';
 class TimeCountdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 35,
       child: GetBuilder<QuestionController>(
@@ -17,7 +17,7 @@ class TimeCountdown extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('${(controller.animation.value * 15).round()} giây',
+                    Text('${(controller.animation.value * 30).round()} giây',
                         style: const TextStyle(fontSize: 20)),
                   ],
                 ),
