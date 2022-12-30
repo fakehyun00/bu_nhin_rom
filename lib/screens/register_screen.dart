@@ -7,7 +7,7 @@ import 'package:gap/gap.dart';
 import '../components/color.dart';
 import '../components/logo.dart';
 import '../models/users_model.dart';
-import 'login_screen.dart';
+import '../view/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
