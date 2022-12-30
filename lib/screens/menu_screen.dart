@@ -4,7 +4,7 @@ import '../components/color.dart';
 import '../components/header_info.dart';
 import '../components/item.dart';
 import '../components/padding_shop.dart';
-import '../view/login_screen.dart';
+import 'login_screen.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
