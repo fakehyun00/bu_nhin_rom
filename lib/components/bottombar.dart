@@ -1,13 +1,11 @@
-import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:heocondihoc/screens/buyplays.dart';
-import 'package:heocondihoc/screens/history.dart';
-import 'package:heocondihoc/screens/menu.dart';
-import 'package:heocondihoc/screens/pay.dart';
-import 'package:heocondihoc/screens/profile.dart';
-import 'package:heocondihoc/screens/shop.dart';
-
-import '../screens/home.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:line_icons/line_icons.dart';
+import '../screens/history.dart';
+import '../screens/home_screen.dart';
+import '../screens/menu_screen.dart';
+import '../screens/profile_screen.dart';
+import '../screens/shop_screen.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -17,65 +15,71 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _selectIndex = 2;
+  int _selectedIndex = 2;
 
-  static final List<Widget> _widgetOptins = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     ProfileScreen(),
-    History(),
-    HomeScreen(),
-    ShopScreen(),
-    MenuScreen()
+    const History(),
+    const HomeScreen(),
+    const ShopScreen(),
+    const MenuScreen()
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _widgetOptins[_selectIndex],
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectIndex,
-        onTap: _onItemTapped,
-        elevation: 10,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedItemColor: Colors.blueGrey,
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: const Color(0xFF526480),
-        items: [
-          const BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_person_regular),
-              activeIcon: Icon(FluentSystemIcons.ic_fluent_person_filled),
-              label: 'Profile'),
-          const BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_history_regular),
-              activeIcon: Icon(FluentSystemIcons.ic_fluent_history_filled),
-              label: 'History'),
-          const BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_home_regular),
-              activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled),
-              label: 'Home'),
-          const BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_store_regular),
-              activeIcon: Icon(FluentSystemIcons.ic_fluent_store_filled),
-              label: 'Store'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.menu,
-                color: Colors.grey,
-              ),
-              activeIcon: Icon(
-                Icons.menu,
-                color: Colors.grey.shade800,
-              ),
-              label: 'Menu')
-        ],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white60,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(.1),
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Colors.grey[300]!,
+              hoverColor: Colors.grey[100]!,
+              gap: 8,
+              activeColor: Colors.black,
+              iconSize: 24,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
+              tabBackgroundColor: Colors.grey[300]!,
+              color: Colors.black,
+              tabs: const [
+                GButton(
+                  icon: LineIcons.user,
+                ),
+                GButton(
+                  icon: LineIcons.history,
+                ),
+                GButton(
+                  icon: LineIcons.home,
+                ),
+                GButton(
+                  icon: LineIcons.shoppingBag,
+                ),
+                GButton(
+                  icon: Icons.menu,
+                )
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+            ),
+          ),
+        ),
       ),
     );
   }
