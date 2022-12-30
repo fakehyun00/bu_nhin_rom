@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:heocondihoc/components/bottombar.dart';
-import 'package:heocondihoc/models/color.dart';
-import 'package:heocondihoc/models/logo.dart';
-import 'package:heocondihoc/screens/home.dart';
-import 'package:heocondihoc/screens/level_single.dart';
-import 'package:heocondihoc/screens/singlematch.dart';
 
-import '../models/item.dart';
+import 'package:get/get.dart';
+
+import '../components/bottombar.dart';
+import '../components/color.dart';
+import '../components/item.dart';
+import '../components/logo.dart';
+import '../routes/app_pages.dart';
 
 class MatchScreen extends StatefulWidget {
   const MatchScreen({super.key});
@@ -42,15 +42,11 @@ class _MatchScreenState extends State<MatchScreen> {
             const ItemBar(),
           ],
         ),
-
         const Gap(10),
         Container(
           child: logo,
         ),
         const Gap(20),
-        // Container(
-        //     padding: EdgeInsets.fromLTRB(35, 0, 35, 10),
-        //   child:
         Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -64,11 +60,7 @@ class _MatchScreenState extends State<MatchScreen> {
               height: 100,
               child: TextButton(
                 onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LevelScreen()));
+                  Get.toNamed(Routes.LEVEL_SINGLE);
                 },
                 child: const Text('Đấu Đơn',
                     style: TextStyle(fontSize: 25, color: myColor)),
@@ -87,13 +79,7 @@ class _MatchScreenState extends State<MatchScreen> {
               width: 210,
               height: 100,
               child: TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SingleMatch()));
-                },
+                onPressed: () {},
                 child: const Text('Đối Kháng',
                     style: TextStyle(fontSize: 25, color: myColor)),
               ),
