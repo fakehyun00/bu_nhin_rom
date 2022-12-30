@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:heocondihoc/models/color.dart';
-import 'package:heocondihoc/models/padding_shop.dart';
 
-import '../models/item.dart';
+import '../components/color.dart';
+import '../components/item.dart';
+import '../components/padding_shop.dart';
 
 class History extends StatefulWidget {
   const History({super.key});

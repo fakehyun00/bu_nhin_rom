@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:heocondihoc/models/color.dart';
-import 'package:heocondihoc/models/padding_shop.dart';
+import 'color.dart';
+import 'padding_shop.dart';
 
 class Solo extends StatefulWidget {
   @override

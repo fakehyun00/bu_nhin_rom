@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
-import 'package:heocondihoc/screens/history.dart';
-import 'package:heocondihoc/screens/menu.dart';
-import 'package:heocondihoc/screens/profile.dart';
-import 'package:heocondihoc/screens/shop.dart';
 import 'package:line_icons/line_icons.dart';
-
-import '../screens/home.dart';
+import '../screens/history.dart';
+import '../screens/home_screen.dart';
+import '../screens/menu_screen.dart';
+import '../screens/profile_screen.dart';
+import '../screens/shop_screen.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
