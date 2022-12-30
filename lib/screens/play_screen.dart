@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:heocondihoc/components/format_timer.dart';
+import '../models/format_timer.dart';
 import '../base/base_view.dart';
 import '../controller/play_screen_controller.dart';
 

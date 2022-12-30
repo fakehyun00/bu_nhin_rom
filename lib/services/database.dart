@@ -35,7 +35,7 @@ class DataBaseMethod {
     }
   }
 
-  //Lấy danh sách các Ải
+  //Lấy danh sách câu hỏi
   Future<List<QuestionData>> getQuestion(String idSection) async {
     try {
       QuestionData question;
