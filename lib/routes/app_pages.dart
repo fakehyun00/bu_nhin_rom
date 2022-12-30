@@ -4,11 +4,11 @@ import '../bindings/history_binding.dart';
 import '../bindings/level_single_binding.dart';
 import '../bindings/login_binding.dart';
 import '../bindings/play_screen_binding.dart';
-// import '../bindings/profile_detail_binding.dart';
 import '../bindings/summary_binding.dart';
-import '../screens/levelsingle_screen.dart';
-import '../screens/login_screen.dart';
+
 import '../view/history_screen.dart';
+import '../view/levelsingle_screen.dart';
+import '../view/login_screen.dart';
 import '../view/play_screen.dart';
 import '../view/summary_screen.dart';
 
